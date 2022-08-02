@@ -85,12 +85,12 @@ function createPokemonDetail(id) {
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    renderPokemonDetails(xhr);
+    renderPokemonDetails(xhr.response);
   });
   xhr.send();
 }
 
-function renderPokemonDetails(xhr) {
+function renderPokemonDetails(responseData) {
   var $pokemonDetailsBorder = document.createElement('div');
   $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test');
 
@@ -111,7 +111,7 @@ function renderPokemonDetails(xhr) {
 
   var $h1 = document.createElement('h1');
   $h1.setAttribute('class', 'roboto-font');
-  $h1.textContent = data.currentPokemon.heading + ' ' + xhr.response.names[0].name;
+  $h1.textContent = data.currentPokemon.heading + ' ' + responseData.names[0].name;
 
   $rowHeader.appendChild($h1);
 
@@ -127,7 +127,7 @@ function renderPokemonDetails(xhr) {
 
   var $p1 = document.createElement('p');
   $p1.setAttribute('class', 'josefins-font');
-  $p1.textContent = xhr.response.flavor_text_entries[0].flavor_text;
+  $p1.textContent = responseData.flavor_text_entries[0].flavor_text;
 
   $divColumn2.appendChild($p1);
 

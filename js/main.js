@@ -104,6 +104,7 @@ function createPokemonDetail(id) {
     $divColumn.appendChild($rowHeader);
 
     var $h1 = document.createElement('h1');
+    $h1.setAttribute('class', 'roboto-font');
     $h1.textContent = data.currentPokemon.heading + ' ' + xhr.response.names[0].name;
 
     $rowHeader.appendChild($h1);
@@ -119,19 +120,24 @@ function createPokemonDetail(id) {
     $divRow2.appendChild($divColumn2);
 
     var $p1 = document.createElement('p');
+    $p1.setAttribute('class', 'josefins-font');
     $p1.textContent = xhr.response.flavor_text_entries[0].flavor_text;
 
     $divColumn2.appendChild($p1);
 
     var $button = document.createElement('button');
     $button.setAttribute('class', data.currentPokemon.typing[0]);
-    $button.textContent = data.currentPokemon.typing[0];
+    var capitalTyping = data.currentPokemon.typing[0];
+    capitalTyping = capitalTyping.toUpperCase();
+    $button.textContent = capitalTyping;
     $divColumn2.appendChild($button);
 
     if (data.currentPokemon.typing.length > 1) {
       var $button2 = document.createElement('button');
       $button2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small');
-      $button2.textContent = data.currentPokemon.typing[1];
+      var capitalTyping2 = data.currentPokemon.typing[1];
+      capitalTyping2 = capitalTyping2.toUpperCase();
+      $button2.textContent = capitalTyping2;
       $divColumn2.appendChild($button2);
     }
     var $divRow3 = document.createElement('div');
@@ -156,12 +162,22 @@ function createPokemonDetail(id) {
 
     $divRow3.appendChild($p5);
     var $p6 = document.createElement('p');
+
     $p6.textContent = 'Special-attack: ' + data.currentPokemon.specialAttack;
     $divRow3.appendChild($p6);
+
     var $p7 = document.createElement('p');
     $p7.textContent = 'Speed: ' + data.currentPokemon.speed;
 
+    var $p8 = document.createElement('p');
+    $p8.textContent = 'Weight: ' + data.currentPokemon.weight;
+
+    var $p9 = document.createElement('p');
+    $p9.textContent = 'Height: ' + data.currentPokemon.height;
+
     $divRow3.appendChild($p7);
+    $divRow3.appendChild($p8);
+    $divRow3.appendChild($p9);
 
     $divColumn2.appendChild($divRow3);
 

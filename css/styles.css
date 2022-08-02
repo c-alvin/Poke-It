@@ -331,3 +331,7 @@ p {
 .margin-left-small {
   margin-left: 25px;
 }
+
+.josefins-font {
+  font-family: josefins, sans-serif;
+}

@@ -42,3 +42,13 @@ function removeAllChildNodes(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
+
+var $allPokemonSelect = document.querySelector('.pokemon-category');
+
+function appendPokemonDataForSelect(event) {
+  removeAllChildNodes($pokemonList);
+  var datagen = event.target.value;
+  getPokemonDataAll2(datagen);
+
+}
+$allPokemonSelect.addEventListener('change', appendPokemonDataForSelect);

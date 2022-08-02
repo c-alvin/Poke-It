@@ -1,6 +1,6 @@
 /* exported data */
 var data = {
-  views: 'pokemon-view',
+  view: 'pokemon-view',
   pokeGenBoundaries: {
     national: {
       start: 1,
@@ -47,7 +47,18 @@ var data = {
   gen7: [],
   gen8: [],
   viewing: null,
-  favorites: []
+  currentPokemon: {
+    heading: null,
+    typing: [],
+    hp: null,
+    attack: null,
+    specialAttack: null,
+    specialDefense: null,
+    speed: null,
+    weight: null,
+    height: null,
+    img: null
+  }
 };
 
 // data-gen = gen1

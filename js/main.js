@@ -85,118 +85,121 @@ function createPokemonDetail(id) {
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    var $pokemonDetailsBorder = document.createElement('div');
-    $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test');
-
-    var $divRow = document.createElement('div');
-    $divRow.setAttribute('class', 'row');
-
-    $pokemonDetailsBorder.appendChild($divRow);
-
-    var $divColumn = document.createElement('div');
-    $divColumn.setAttribute('class', 'column-full pokemon-details-header padding-top-small');
-
-    $divRow.appendChild($divColumn);
-
-    var $rowHeader = document.createElement('div');
-    $rowHeader.setAttribute('class', 'row padding-left-25');
-
-    $divColumn.appendChild($rowHeader);
-
-    var $h1 = document.createElement('h1');
-    $h1.setAttribute('class', 'roboto-font');
-    $h1.textContent = data.currentPokemon.heading + ' ' + xhr.response.names[0].name;
-
-    $rowHeader.appendChild($h1);
-
-    var $divRow2 = document.createElement('div');
-    $divRow2.setAttribute('class', 'row flex-wrap');
-
-    $pokemonDetailsBorder.appendChild($divRow2);
-
-    var $divColumn2 = document.createElement('div');
-    $divColumn2.setAttribute('class', 'column-half column-full details');
-
-    $divRow2.appendChild($divColumn2);
-
-    var $p1 = document.createElement('p');
-    $p1.setAttribute('class', 'josefins-font');
-    $p1.textContent = xhr.response.flavor_text_entries[0].flavor_text;
-
-    $divColumn2.appendChild($p1);
-
-    var $button = document.createElement('button');
-    $button.setAttribute('class', data.currentPokemon.typing[0]);
-    var capitalTyping = data.currentPokemon.typing[0];
-    capitalTyping = capitalTyping.toUpperCase();
-    $button.textContent = capitalTyping;
-    $divColumn2.appendChild($button);
-
-    if (data.currentPokemon.typing.length > 1) {
-      var $button2 = document.createElement('button');
-      $button2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small');
-      var capitalTyping2 = data.currentPokemon.typing[1];
-      capitalTyping2 = capitalTyping2.toUpperCase();
-      $button2.textContent = capitalTyping2;
-      $divColumn2.appendChild($button2);
-    }
-    var $divRow3 = document.createElement('div');
-    $divRow3.setAttribute('class', 'stats padding-top-small');
-
-    var $p2 = document.createElement('p');
-    $p2.setAttribute('class', 'margin-top-small');
-    $p2.textContent = 'HP: ' + data.currentPokemon.hp;
-
-    $divRow3.appendChild($p2);
-
-    var $p3 = document.createElement('p');
-    $p3.textContent = 'Attack: ' + data.currentPokemon.attack;
-
-    $divRow3.appendChild($p3);
-
-    var $p4 = document.createElement('p');
-    $p4.textContent = 'Defense: ' + data.currentPokemon.defense;
-    $divRow3.appendChild($p4);
-    var $p5 = document.createElement('p');
-    $p5.textContent = 'Special-defense: ' + data.currentPokemon.specialDefense;
-
-    $divRow3.appendChild($p5);
-    var $p6 = document.createElement('p');
-
-    $p6.textContent = 'Special-attack: ' + data.currentPokemon.specialAttack;
-    $divRow3.appendChild($p6);
-
-    var $p7 = document.createElement('p');
-    $p7.textContent = 'Speed: ' + data.currentPokemon.speed;
-
-    var $p8 = document.createElement('p');
-    $p8.textContent = 'Weight: ' + data.currentPokemon.weight;
-
-    var $p9 = document.createElement('p');
-    $p9.textContent = 'Height: ' + data.currentPokemon.height;
-
-    $divRow3.appendChild($p7);
-    $divRow3.appendChild($p8);
-    $divRow3.appendChild($p9);
-
-    $divColumn2.appendChild($divRow3);
-
-    var $divColumn3 = document.createElement('div');
-    $divColumn3.setAttribute('class', 'column-half column-full display-flex align-center justify-center');
-
-    $pokemonDetailsBorder.appendChild($divColumn3);
-
-    var $officialArt = document.createElement('img');
-    $officialArt.setAttribute('class', 'official-artwork padding-top-small');
-    $officialArt.setAttribute('src', data.currentPokemon.img);
-
-    $divColumn3.appendChild($officialArt);
-    $divRow2.appendChild($divColumn3);
-
-    $pokemonDetail.appendChild($pokemonDetailsBorder);
-
+    renderPokemonDetails(xhr);
   });
   xhr.send();
+}
+
+function renderPokemonDetails(xhr) {
+  var $pokemonDetailsBorder = document.createElement('div');
+  $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test');
+
+  var $divRow = document.createElement('div');
+  $divRow.setAttribute('class', 'row');
+
+  $pokemonDetailsBorder.appendChild($divRow);
+
+  var $divColumn = document.createElement('div');
+  $divColumn.setAttribute('class', 'column-full pokemon-details-header padding-top-small');
+
+  $divRow.appendChild($divColumn);
+
+  var $rowHeader = document.createElement('div');
+  $rowHeader.setAttribute('class', 'row padding-left-25');
+
+  $divColumn.appendChild($rowHeader);
+
+  var $h1 = document.createElement('h1');
+  $h1.setAttribute('class', 'roboto-font');
+  $h1.textContent = data.currentPokemon.heading + ' ' + xhr.response.names[0].name;
+
+  $rowHeader.appendChild($h1);
+
+  var $divRow2 = document.createElement('div');
+  $divRow2.setAttribute('class', 'row flex-wrap');
+
+  $pokemonDetailsBorder.appendChild($divRow2);
+
+  var $divColumn2 = document.createElement('div');
+  $divColumn2.setAttribute('class', 'column-half column-full details');
+
+  $divRow2.appendChild($divColumn2);
+
+  var $p1 = document.createElement('p');
+  $p1.setAttribute('class', 'josefins-font');
+  $p1.textContent = xhr.response.flavor_text_entries[0].flavor_text;
+
+  $divColumn2.appendChild($p1);
+
+  var $button = document.createElement('button');
+  $button.setAttribute('class', data.currentPokemon.typing[0]);
+  var capitalTyping = data.currentPokemon.typing[0];
+  capitalTyping = capitalTyping.toUpperCase();
+  $button.textContent = capitalTyping;
+  $divColumn2.appendChild($button);
+
+  if (data.currentPokemon.typing.length > 1) {
+    var $button2 = document.createElement('button');
+    $button2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small');
+    var capitalTyping2 = data.currentPokemon.typing[1];
+    capitalTyping2 = capitalTyping2.toUpperCase();
+    $button2.textContent = capitalTyping2;
+    $divColumn2.appendChild($button2);
+  }
+  var $divRow3 = document.createElement('div');
+  $divRow3.setAttribute('class', 'stats padding-top-small');
+
+  var $p2 = document.createElement('p');
+  $p2.setAttribute('class', 'margin-top-small');
+  $p2.textContent = 'HP: ' + data.currentPokemon.hp;
+
+  $divRow3.appendChild($p2);
+
+  var $p3 = document.createElement('p');
+  $p3.textContent = 'Attack: ' + data.currentPokemon.attack;
+
+  $divRow3.appendChild($p3);
+
+  var $p4 = document.createElement('p');
+  $p4.textContent = 'Defense: ' + data.currentPokemon.defense;
+  $divRow3.appendChild($p4);
+  var $p5 = document.createElement('p');
+  $p5.textContent = 'Special-defense: ' + data.currentPokemon.specialDefense;
+
+  $divRow3.appendChild($p5);
+  var $p6 = document.createElement('p');
+
+  $p6.textContent = 'Special-attack: ' + data.currentPokemon.specialAttack;
+  $divRow3.appendChild($p6);
+
+  var $p7 = document.createElement('p');
+  $p7.textContent = 'Speed: ' + data.currentPokemon.speed;
+
+  var $p8 = document.createElement('p');
+  $p8.textContent = 'Weight: ' + data.currentPokemon.weight;
+
+  var $p9 = document.createElement('p');
+  $p9.textContent = 'Height: ' + data.currentPokemon.height;
+
+  $divRow3.appendChild($p7);
+  $divRow3.appendChild($p8);
+  $divRow3.appendChild($p9);
+
+  $divColumn2.appendChild($divRow3);
+
+  var $divColumn3 = document.createElement('div');
+  $divColumn3.setAttribute('class', 'column-half column-full display-flex align-center justify-center');
+
+  $pokemonDetailsBorder.appendChild($divColumn3);
+
+  var $officialArt = document.createElement('img');
+  $officialArt.setAttribute('class', 'official-artwork padding-top-small');
+  $officialArt.setAttribute('src', data.currentPokemon.img);
+
+  $divColumn3.appendChild($officialArt);
+  $divRow2.appendChild($divColumn3);
+
+  $pokemonDetail.appendChild($pokemonDetailsBorder);
 }
 
 /* <div class="pokemon-details-border height-test">
@@ -245,7 +248,7 @@ function viewSwap(viewData) {
 
 function clickPokemon(event) {
   var $dataView = event.target.getAttribute('data-view');
-  if (event.target.tagName === 'DIV') {
+  if (event.target.className === 'square') {
     var id = event.target.getAttribute('id');
     getPokemonDetails(id);
     viewSwap($dataView);
@@ -253,8 +256,9 @@ function clickPokemon(event) {
 }
 
 function changeDataView(event) {
-  if (event.target.tagName === 'IMG' || event.target.tagName === 'H1') {
-    viewSwap('pokemon-list');
+  if (event.target.closest('.header-text')) {
+    var $closestDiv = event.target.closest('.header-text').getAttribute('data-view');
+    viewSwap($closestDiv);
     removeAllChildNodes($pokemonList);
     removeAllChildNodes($pokemonDetail);
     getPokemonDataAll('national');

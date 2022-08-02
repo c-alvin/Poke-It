@@ -122,7 +122,7 @@
 
 .sprite {
   width: 80px;
-  height: 50px;
+  height: 80px;
   object-fit: cover;
 }
 
@@ -133,4 +133,18 @@
 
 .margin-top-small {
   margin-top: 40px;
+}
+
+.square:hover {
+  transform: scale(1.1);
+}
+
+.font-blue {
+  color: #025873;
+  font-size: 1.3rem;
+}
+
+p {
+  margin-top: 0;
+  font-size: 1.25rem;
 }

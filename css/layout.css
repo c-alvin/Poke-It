@@ -19,7 +19,6 @@
   width: 150px;
   height: 150px;
   background-color: white;
-  border: solid 0.5rem #730220;
   margin-left: 50px;
   margin-right: 35px;
   margin-bottom: 35px;
@@ -27,6 +26,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: background-color 0.5s;
+  border-radius: 1rem;
+  border: solid 0.2rem #025873;
 }
 
 .column-fourth {
@@ -54,9 +56,11 @@
     width: 150px;
     height: 150px;
     background-color: white;
-    border: solid 0.5rem #730220;
     margin-left: 0;
     margin-right: 0;
+    transition: background-color 0.5s;
+    border-radius: 1rem;
+    border: solid 0.2rem #025873;
   }
 
   .pokemon-category {

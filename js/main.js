@@ -16,7 +16,7 @@ function getPokemonDataAll(datagen) {
       $spriteImg.setAttribute('class', 'sprite');
 
       var $pokemonNumberAndName = document.createElement('p');
-      $pokemonNumberAndName.textContent = '#' + pokemonNumber + ' ' + xhr.response.pokemon_entries[i].pokemon_species.name;
+      $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumber + '</span> ' + xhr.response.pokemon_entries[i].pokemon_species.name;
 
       pokemon.appendChild($spriteImg);
       pokemon.appendChild($pokemonNumberAndName);

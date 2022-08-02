@@ -1,6 +1,6 @@
 var $pokemonList = document.querySelector('.pokemon-list');
 
-function getPokemonDataAll2(datagen) {
+function getPokemonDataAll(datagen) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokedex/1');
   xhr.responseType = 'json';
@@ -32,7 +32,7 @@ function appendPokemonData(event) {
   if (event.target.tagName === 'BUTTON');
   removeAllChildNodes($pokemonList);
   var datagen = event.target.getAttribute('data-gen');
-  getPokemonDataAll2(datagen);
+  getPokemonDataAll(datagen);
 }
 
 $allPokemon.addEventListener('click', appendPokemonData);
@@ -48,7 +48,7 @@ var $allPokemonSelect = document.querySelector('.pokemon-category');
 function appendPokemonDataForSelect(event) {
   removeAllChildNodes($pokemonList);
   var datagen = event.target.value;
-  getPokemonDataAll2(datagen);
+  getPokemonDataAll(datagen);
 
 }
 $allPokemonSelect.addEventListener('change', appendPokemonDataForSelect);

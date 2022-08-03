@@ -19,6 +19,7 @@ function getPokemonDataAll(datagen) {
       $spriteImg.setAttribute('class', 'sprite');
 
       var $pokemonNumberAndName = document.createElement('p');
+      $pokemonNumberAndName.setAttribute('class', 'name');
       $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumber + '</span> ' + xhr.response.pokemon_entries[i].pokemon_species.name;
 
       pokemon.appendChild($spriteImg);
@@ -126,8 +127,13 @@ function renderPokemonDetails(responseData) {
   $divRow2.appendChild($divColumn2);
 
   var $p1 = document.createElement('p');
-  $p1.setAttribute('class', 'josefins-font');
-  $p1.textContent = responseData.flavor_text_entries[0].flavor_text;
+  $p1.setAttribute('class', 'josefins-font flavor-text');
+
+  for (var i = 0; i < responseData.flavor_text_entries.length; i++) {
+    if (responseData.flavor_text_entries[i].language.name === 'en') {
+      $p1.textContent = responseData.flavor_text_entries[i].flavor_text;
+    }
+  }
 
   $divColumn2.appendChild($p1);
 
@@ -200,9 +206,7 @@ function renderPokemonDetails(responseData) {
   $divRow2.appendChild($divColumn3);
 
   $pokemonDetail.appendChild($pokemonDetailsBorder);
-}
-
-/* <div class="pokemon-details-border height-test">
+  /* <div class="pokemon-details-border height-test">
   <div class="row">
     <div class="column-full pokemon-details-header padding-top-small">
       <div class="row padding-left-25">
@@ -231,6 +235,7 @@ function renderPokemonDetails(responseData) {
     </div>
   </div>
 </div> */
+}
 
 var $allView = document.querySelectorAll('.view');
 
@@ -247,10 +252,14 @@ function viewSwap(viewData) {
 }
 
 function clickPokemon(event) {
-  var $dataView = event.target.getAttribute('data-view');
+  var $dataView = event.target.closest('.square').getAttribute('data-view');
   if (event.target.className === 'square') {
     var id = event.target.getAttribute('id');
     getPokemonDetails(id);
+    viewSwap($dataView);
+  } else if (event.target.className === 'sprite' || event.target.className === 'name') {
+    var id2 = event.target.closest('.square').getAttribute('id');
+    getPokemonDetails(id2);
     viewSwap($dataView);
   }
 }
@@ -270,3 +279,23 @@ $pokemonList.addEventListener('click', clickPokemon);
 var $header = document.querySelector('.header-text');
 
 $header.addEventListener('click', changeDataView);
+
+var $random = document.querySelector('#random');
+
+function generateRandomNumber(min, max) {
+  min = 1;
+  max = 898;
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function generateRandomPokemon(event) {
+  removeAllChildNodes($pokemonList);
+  removeAllChildNodes($pokemonDetail);
+  viewSwap('pokemon-details');
+  var id = generateRandomNumber(1, 898);
+  id = id.toString();
+  getPokemonDetails(id);
+
+}
+
+$random.addEventListener('click', generateRandomPokemon);

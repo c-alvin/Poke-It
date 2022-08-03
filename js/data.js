@@ -4,7 +4,7 @@ var data = {
   pokeGenBoundaries: {
     national: {
       start: 1,
-      end: 865
+      end: 898
     },
     gen1: {
       start: 1,

@@ -152,4 +152,8 @@
   .margin-right-small {
     margin-right: 0;
   }
+
+  .flavor-text {
+    padding: 1rem;
+  }
 }

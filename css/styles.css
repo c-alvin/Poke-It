@@ -7,6 +7,10 @@
   font-family: Rationale, sans-serif;
 }
 
+table {
+  border-spacing: 1rem;
+}
+
 .align-center {
   align-items: align-center;
 }
@@ -131,6 +135,10 @@
   margin-top: 40px;
 }
 
+.margin-top-very-small {
+  margin-top: 25px;
+}
+
 .square:hover {
   transform: scale(1.1);
 }
@@ -160,6 +168,10 @@ p {
 
 .padding-left-25 {
   padding-left: 25px;
+}
+
+.padding-left-35 {
+  padding-left: 35px;
 }
 
 .bot-margin-none {
@@ -339,4 +351,19 @@ p {
 a {
   font-family: roboto, sans-serif;
   color: black;
+}
+
+.progress-container {
+  width: 300px;
+  background-color: #ddd;
+  border-radius: 0.5rem;
+  border: solid 3px black;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.margin-left-15 {
+  margin-left: 15px;
 }

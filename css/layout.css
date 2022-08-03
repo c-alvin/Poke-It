@@ -117,7 +117,8 @@
 
   .official-artwork {
     height: 250px;
-    width: 250px;
+    width: auto;
+    object-fit: cover;
   }
 
   .column-half {

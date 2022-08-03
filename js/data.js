@@ -54,6 +54,7 @@ var data = {
     attack: null,
     specialAttack: null,
     specialDefense: null,
+    defense: null,
     speed: null,
     weight: null,
     height: null,

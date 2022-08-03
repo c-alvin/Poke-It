@@ -9,6 +9,8 @@
 
 table {
   border-spacing: 1rem;
+  border: solid 0.25rem black;
+  border-radius: 1rem;
 }
 
 .align-center {
@@ -160,6 +162,7 @@ p {
 .pokemon-details-border {
   border: solid 1.5rem #730220;
   background-color: white;
+  border-radius: 3rem;
 }
 
 .height80 {

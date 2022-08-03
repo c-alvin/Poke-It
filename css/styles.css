@@ -127,6 +127,22 @@ table {
   width: 80px;
   height: 80px;
   object-fit: cover;
+  position: relative;
+}
+
+.sprite:hover {
+  animation: move-up-down 1s linear infinite;
+}
+
+@keyframes move-up-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .option-box {

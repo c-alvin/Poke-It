@@ -335,3 +335,8 @@ p {
 .josefins-font {
   font-family: josefins, sans-serif;
 }
+
+a {
+  font-family: roboto, sans-serif;
+  color: black;
+}

@@ -67,6 +67,7 @@ function getPokemonDetails(id) {
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    data.currentPokemon.id = '#' + xhr.response.id;
     data.currentPokemon.heading = '#' + xhr.response.id + ' ' + xhr.response.name;
     data.currentPokemon.weight = xhr.response.weight;
     data.currentPokemon.height = xhr.response.height;
@@ -100,6 +101,7 @@ function createPokemonDetail(id) {
 function renderPokemonDetails(responseData) {
   var $pokemonDetailsBorder = document.createElement('div');
   $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test');
+  $pokemonDetailsBorder.setAttribute('id', data.currentPokemon.id);
 
   var $divRow = document.createElement('div');
   $divRow.setAttribute('class', 'row');
@@ -112,7 +114,7 @@ function renderPokemonDetails(responseData) {
   $divRow.appendChild($divColumn);
 
   var $rowHeader = document.createElement('div');
-  $rowHeader.setAttribute('class', 'row padding-left-35');
+  $rowHeader.setAttribute('class', 'row padding-left-35 space-between');
 
   $divColumn.appendChild($rowHeader);
 
@@ -121,6 +123,12 @@ function renderPokemonDetails(responseData) {
   $h1.textContent = data.currentPokemon.heading + ' ' + responseData.names[0].name;
 
   $rowHeader.appendChild($h1);
+
+  var $starIcon = document.createElement('i');
+  $starIcon.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
+  $starIcon.setAttribute('id', 'star');
+
+  $rowHeader.appendChild($starIcon);
 
   var $divRow2 = document.createElement('div');
   $divRow2.setAttribute('class', 'row flex-wrap-details');
@@ -419,6 +427,38 @@ function renderPokemonDetails(responseData) {
   $divRow2.appendChild($divColumn3);
 
   $pokemonDetail.appendChild($pokemonDetailsBorder);
+
+  var $star = document.getElementById('star');
+
+  var starClicked = false;
+  for (var p = 0; p < data.favorited.length; p++) {
+    if (data.currentPokemon.id === data.favorited[p].id) {
+      $star.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
+      starClicked = true;
+    }
+  }
+  function starTest(event) {
+    if (starClicked === false) {
+      $star.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
+      var favoritedPokemon = {};
+      var splitHeading = $h1.textContent.split(' ');
+      favoritedPokemon.id = splitHeading[0];
+      favoritedPokemon.name = splitHeading[1];
+      data.favorited.unshift(favoritedPokemon);
+      starClicked = true;
+    } else {
+      $star.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
+      for (var i = 0; i < data.favorited.length; i++) {
+        if (data.favorited[i].id === data.currentPokemon.id) {
+          data.favorited.splice(i, 1);
+        }
+      }
+      starClicked = false;
+    }
+
+  }
+
+  $star.addEventListener('click', starTest);
 
 }
 

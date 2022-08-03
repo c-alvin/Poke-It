@@ -383,3 +383,20 @@ a {
 .text-align-left {
   text-align: left;
 }
+
+.star-color-grey {
+  color: gray;
+}
+
+.star-color-goldenrod {
+  color: goldenrod;
+}
+
+.star-size {
+  font-size: 2rem;
+}
+
+.padding-top-right-very-small {
+  padding-top: 1rem;
+  padding-right: 1rem;
+}

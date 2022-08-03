@@ -46,8 +46,9 @@ var data = {
   gen6: [],
   gen7: [],
   gen8: [],
-  viewing: null,
+  favorited: [],
   currentPokemon: {
+    id: null,
     heading: null,
     typing: [],
     hp: null,
@@ -61,6 +62,13 @@ var data = {
     img: null
   }
 };
+
+function stringJson(event) {
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('pokemon-data', dataJSON);
+}
+
+window.addEventListener('beforeunload', stringJson);
 
 // data-gen = gen1
 

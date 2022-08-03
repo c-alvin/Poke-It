@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.margin-left-15 {
+  margin-left: 15px;
+}
+
 .height-test {
   height: 900px;
 }
@@ -69,6 +73,10 @@
   flex-wrap: wrap;
 }
 
+.flex-wrap-details {
+  flex-wrap: wrap;
+}
+
 .justify-right-random {
   justify-content: right;
   align-items: center;
@@ -88,16 +96,16 @@
     justify-content: center;
   }
 
+  .margin-left-15 {
+    margin-left: 0;
+  }
+
   .padding-left {
     padding-left: 0;
   }
 
   .buttons {
     display: none;
-  }
-
-  .flex-wrap {
-    flex-wrap: wrap;
   }
 
   .square {
@@ -139,7 +147,7 @@
   }
 
   .height-test {
-    height: 812px;
+    height: auto;
   }
 
   .header {
@@ -156,5 +164,9 @@
 
   .flavor-text {
     padding: 1rem;
+  }
+
+  .flex-wrap-details {
+    flex-wrap: wrap-reverse;
   }
 }

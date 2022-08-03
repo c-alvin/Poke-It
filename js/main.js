@@ -117,7 +117,7 @@ function renderPokemonDetails(responseData) {
   $rowHeader.appendChild($h1);
 
   var $divRow2 = document.createElement('div');
-  $divRow2.setAttribute('class', 'row flex-wrap');
+  $divRow2.setAttribute('class', 'row flex-wrap-details');
 
   $pokemonDetailsBorder.appendChild($divRow2);
 
@@ -153,10 +153,10 @@ function renderPokemonDetails(responseData) {
     $divColumn2.appendChild($button2);
   }
   var $divRow3 = document.createElement('div');
-  $divRow3.setAttribute('class', 'stats padding-top-small text-align-left');
+  $divRow3.setAttribute('class', 'padding-top-small text-align-left');
 
   var $table = document.createElement('table');
-  $table.setAttribute('class', 'margin-top-very-small rationale-font');
+  $table.setAttribute('class', 'rationale-font');
 
   $divRow3.appendChild($table);
 
@@ -211,7 +211,7 @@ function renderPokemonDetails(responseData) {
   $table.appendChild($tr3);
 
   var $th3 = document.createElement('th');
-  $th3.textContent = 'Special-defense: ';
+  $th3.textContent = 'S.def: ';
 
   $tr3.appendChild($th3);
 
@@ -234,7 +234,7 @@ function renderPokemonDetails(responseData) {
   $table.appendChild($tr4);
 
   var $th4 = document.createElement('th');
-  $th4.textContent = 'Special-attack: ';
+  $th4.textContent = 'S.attack: ';
 
   $tr4.appendChild($th4);
 

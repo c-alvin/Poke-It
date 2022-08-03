@@ -50,8 +50,9 @@ table {
   width: 93px;
   height: 36px;
   color: white;
-  border-radius: 0.1rem;
-  border: none;
+  border: solid white 0.2rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
 }
 
 .space-evenly {

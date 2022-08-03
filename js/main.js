@@ -156,7 +156,7 @@ function renderPokemonDetails(responseData) {
   $divRow3.setAttribute('class', 'padding-top-small text-align-left');
 
   var $table = document.createElement('table');
-  $table.setAttribute('class', 'rationale-font');
+  $table.setAttribute('class', 'rationale-font margin-table');
 
   $divRow3.appendChild($table);
 

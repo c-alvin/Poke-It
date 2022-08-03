@@ -169,4 +169,10 @@
   .flex-wrap-details {
     flex-wrap: wrap-reverse;
   }
+
+  .margin-table {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }

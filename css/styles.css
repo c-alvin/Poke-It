@@ -7,6 +7,12 @@
   font-family: Rationale, sans-serif;
 }
 
+table {
+  border-spacing: 1rem;
+  border: solid 0.25rem black;
+  border-radius: 1rem;
+}
+
 .align-center {
   align-items: align-center;
 }
@@ -44,8 +50,9 @@
   width: 93px;
   height: 36px;
   color: white;
-  border-radius: 0.1rem;
-  border: none;
+  border: solid white 0.2rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
 }
 
 .space-evenly {
@@ -120,6 +127,22 @@
   width: 80px;
   height: 80px;
   object-fit: cover;
+  position: relative;
+}
+
+.sprite:hover {
+  animation: move-up-down 1s linear infinite;
+}
+
+@keyframes move-up-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .option-box {
@@ -129,6 +152,10 @@
 
 .margin-top-small {
   margin-top: 40px;
+}
+
+.margin-top-very-small {
+  margin-top: 25px;
 }
 
 .square:hover {
@@ -152,6 +179,7 @@ p {
 .pokemon-details-border {
   border: solid 1.5rem #730220;
   background-color: white;
+  border-radius: 3rem;
 }
 
 .height80 {
@@ -160,6 +188,10 @@ p {
 
 .padding-left-25 {
   padding-left: 25px;
+}
+
+.padding-left-35 {
+  padding-left: 35px;
 }
 
 .bot-margin-none {
@@ -339,4 +371,15 @@ p {
 a {
   font-family: roboto, sans-serif;
   color: black;
+}
+
+.progress-container {
+  width: 300px;
+  background-color: #ddd;
+  border-radius: 0.5rem;
+  border: solid 3px black;
+}
+
+.text-align-left {
+  text-align: left;
 }

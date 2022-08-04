@@ -173,7 +173,7 @@ function renderPokemonDetails(responseData) {
     $divColumn2.appendChild($span2);
   }
   var $divRow3 = document.createElement('div');
-  $divRow3.setAttribute('class', 'padding-top-small text-align-left');
+  $divRow3.setAttribute('class', 'padding-top-small text-align-left table-flex');
 
   var $table = document.createElement('table');
   $table.setAttribute('class', 'rationale-font margin-table');

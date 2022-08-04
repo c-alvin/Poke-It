@@ -91,9 +91,18 @@
   justify-content: space-between;
 }
 
+.table-flex {
+  display: block;
+}
+
 @media screen and (max-width: 900px) {
   .column-half {
     width: 100%;
+  }
+
+  .table-flex {
+    display: flex;
+    justify-content: center;
   }
 
   .official-artwork {
@@ -195,4 +204,5 @@
   .margin-star {
     margin-right: 0.625rem;
   }
+}
 }

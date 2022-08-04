@@ -119,14 +119,19 @@ function renderPokemonDetails(responseData) {
   $divColumn.appendChild($rowHeader);
 
   var $h1 = document.createElement('h1');
-  $h1.setAttribute('class', 'roboto-font');
+  $h1.setAttribute('class', 'roboto-font name-test');
   $h1.textContent = data.currentPokemon.heading + ' ' + responseData.names[0].name;
 
   $rowHeader.appendChild($h1);
 
   var $starIcon = document.createElement('i');
-  $starIcon.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
   $starIcon.setAttribute('id', 'star');
+
+  if (checkFavorites() === false) {
+    $starIcon.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
+  } else {
+    $starIcon.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
+  }
 
   $rowHeader.appendChild($starIcon);
 
@@ -430,34 +435,6 @@ function renderPokemonDetails(responseData) {
 
   var $star = document.getElementById('star');
 
-  var starClicked = false;
-  for (var p = 0; p < data.favorited.length; p++) {
-    if (data.currentPokemon.id === data.favorited[p].id) {
-      $star.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
-      starClicked = true;
-    }
-  }
-  function starTest(event) {
-    if (starClicked === false) {
-      $star.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
-      var favoritedPokemon = {};
-      var splitHeading = $h1.textContent.split(' ');
-      favoritedPokemon.id = splitHeading[0];
-      favoritedPokemon.name = splitHeading[1];
-      data.favorited.unshift(favoritedPokemon);
-      starClicked = true;
-    } else {
-      $star.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
-      for (var i = 0; i < data.favorited.length; i++) {
-        if (data.favorited[i].id === data.currentPokemon.id) {
-          data.favorited.splice(i, 1);
-        }
-      }
-      starClicked = false;
-    }
-
-  }
-
   $star.addEventListener('click', starTest);
 
 }
@@ -524,3 +501,33 @@ function generateRandomPokemon(event) {
 }
 
 $random.addEventListener('click', generateRandomPokemon);
+
+function checkFavorites() {
+  for (var p = 0; p < data.favorited.length; p++) {
+    if (data.currentPokemon.id === data.favorited[p].id) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function starTest(event) {
+  if (checkFavorites() === false) {
+    event.target.setAttribute('class', 'fa-solid fa-star star-color-goldenrod star-size padding-top-right-very-small margin-star');
+    var favoritedPokemon = {};
+    var $h1 = document.querySelector('.name-test');
+    var splitHeading = $h1.textContent.split(' ');
+    favoritedPokemon.id = splitHeading[0];
+    favoritedPokemon.name = splitHeading[1];
+    data.favorited.unshift(favoritedPokemon);
+
+  } else if (checkFavorites() === true) {
+    event.target.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
+    for (var i = 0; i < data.favorited.length; i++) {
+      if (data.favorited[i].id === data.currentPokemon.id) {
+        data.favorited.splice(i, 1);
+      }
+    }
+  }
+
+}

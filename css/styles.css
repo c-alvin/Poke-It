@@ -51,7 +51,7 @@ table {
   height: 36px;
   color: white;
   border: solid white 0.2rem;
-  font-size: 1.25rem;
+  font-size: 0.85rem;
   border-radius: 0.3rem;
 }
 
@@ -399,4 +399,26 @@ a {
 .padding-top-right-very-small {
   padding-top: 1rem;
   padding-right: 1rem;
+}
+
+.pokeball-img:hover {
+  animation: shake 0.5s infinite alternate;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(7deg);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-7deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }

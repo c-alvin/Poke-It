@@ -99,6 +99,26 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 900px) {
+  .column-half {
+    width: 100%;
+  }
+
+  .official-artwork {
+    width: 300px;
+    height: auto;
+  }
+
+  .height-test {
+    height: auto;
+  }
+
+  .margin-table {
+    margin-bottom: 5px;
+    margin-right: 25px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .header-text {
     justify-content: center;

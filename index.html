@@ -29,9 +29,8 @@
       </div>
       <div class="column-half">
         <div class="row justify-right-random align-center height-test2 margin-right-small">
-          <a class="roboto-font" id="favorites" href="#">FAVORITES</a>
+          <a class="roboto-font" id="favorites" href="#" data-view="favorites-list">FAVORITES</a>
           <a class="roboto-font margin-left-15" id="random" href="#">RANDOM</a>
-
         </div>
       </div>
     </div>
@@ -42,15 +41,15 @@
         <div class="row margin-bot-small">
           <div class="column-full">
             <div class="row text-white padding-top-small justify-center buttons gap20">
-              <button class="gen-button button-black rationale-font" data-gen="national" id="national">ALL</button>
-              <button class="gen-button button-blue rationale-font" data-gen="gen1" id="1">GEN 1</button>
-              <button class="gen-button button-pink rationale-font" data-gen="gen2" id="2">GEN 2</button>
-              <button class="gen-button button-gray rationale-font" data-gen="gen3" id="3">GEN 3</button>
-              <button class="gen-button button-red rationale-font" data-gen="gen4" id="4">GEN 4</button>
-              <button class="gen-button button-navy rationale-font" data-gen="gen5" id="5">GEN 5</button>
-              <button class="gen-button button-teal rationale-font" data-gen="gen6" id="6">GEN 6</button>
-              <button class="gen-button button-green rationale-font" data-gen="gen7" id="7">GEN 7</button>
-              <button class="gen-button button-purple rationale-font" data-gen="gen8" id="8">GEN 8</button>
+              <button class="gen-button button-black rationale-font" data-gen="national">ALL</button>
+              <button class="gen-button button-blue rationale-font" data-gen="gen1">GEN 1</button>
+              <button class="gen-button button-pink rationale-font" data-gen="gen2">GEN 2</button>
+              <button class="gen-button button-gray rationale-font" data-gen="gen3">GEN 3</button>
+              <button class="gen-button button-red rationale-font" data-gen="gen4">GEN 4</button>
+              <button class="gen-button button-navy rationale-font" data-gen="gen5">GEN 5</button>
+              <button class="gen-button button-teal rationale-font" data-gen="gen6">GEN 6</button>
+              <button class="gen-button button-green rationale-font" data-gen="gen7">GEN 7</button>
+              <button class="gen-button button-purple rationale-font" data-gen="gen8">GEN 8</button>
             </div>
             <div class="text-center">
               <select class="pokemon-category option-box text-center margin-top-small">
@@ -77,8 +76,23 @@
     </div>
     <div data-view="pokemon-details" class="view hidden" id="pokemon-detail">
     </div>
+    <div data-view="favorites-list" class="view hidden">
+      <div class="row pokemon-view">
+        <div class="column-full">
+          <p class="text-center placeholder-text rationale-font text-white margin-top-small">Nothing has been favorited</p>
+          <div class="row flex-wrap space-evenly rationale-font favorite-list margin-top-small">
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
+
+
+<!-- <div class="square">
+  <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+  <p>#1 Bulbasaur</p>
+</div> -->

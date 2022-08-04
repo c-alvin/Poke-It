@@ -25,8 +25,8 @@ table {
   text-align: center;
 }
 
-.padding-test {
-  margin-top: 20px;
+.padding-ball {
+  margin-top: 1.25rem;
 }
 
 .background-color-red {
@@ -39,11 +39,6 @@ table {
 
 .text-white {
   color: white;
-}
-
-.text-heebo {
-  font-family: Heebo, sans-serif;
-  font-size: 0.75rem;
 }
 
 .gen-button {
@@ -99,10 +94,6 @@ table {
   background-color: #562b81;
 }
 
-.font-size-18 {
-  font-size: 18px;
-}
-
 .height {
   height: 100%;
 }
@@ -116,7 +107,7 @@ table {
 }
 
 .margin-bot-small {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .gap20 {
@@ -151,11 +142,7 @@ table {
 }
 
 .margin-top-small {
-  margin-top: 40px;
-}
-
-.margin-top-very-small {
-  margin-top: 25px;
+  margin-top: 2.5rem;
 }
 
 .square:hover {
@@ -182,20 +169,8 @@ p {
   border-radius: 3rem;
 }
 
-.height80 {
-  height: 80%;
-}
-
-.padding-left-25 {
-  padding-left: 25px;
-}
-
 .padding-left-35 {
-  padding-left: 35px;
-}
-
-.bot-margin-none {
-  margin-bottom: 0;
+  padding-left: 2.1875rem;
 }
 
 .grass {
@@ -361,7 +336,7 @@ p {
 }
 
 .margin-left-small {
-  margin-left: 25px;
+  margin-left: 1.5625rem;
 }
 
 .josefins-font {
@@ -421,4 +396,9 @@ a {
   100% {
     transform: rotate(0deg);
   }
+}
+
+.padding-span {
+  padding: 0.625rem 1.5625rem;
+  font-family: rationale, sans-serif;
 }

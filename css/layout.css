@@ -114,6 +114,10 @@
     height: auto;
   }
 
+  .margin-star {
+    margin-top: 0.4rem;
+  }
+
   .margin-table {
     margin-bottom: 5px;
     margin-right: 25px;
@@ -203,5 +207,6 @@
 
   .margin-star {
     margin-right: 0.625rem;
+    margin-top: 0.1rem;
   }
 }

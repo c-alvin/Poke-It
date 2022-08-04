@@ -157,20 +157,20 @@ function renderPokemonDetails(responseData) {
 
   $divColumn2.appendChild($p1);
 
-  var $button = document.createElement('button');
-  $button.setAttribute('class', data.currentPokemon.typing[0] + ' ' + 'margin-left-15');
+  var $span = document.createElement('span');
+  $span.setAttribute('class', data.currentPokemon.typing[0] + ' ' + 'margin-left-15 padding-span');
   var capitalTyping = data.currentPokemon.typing[0];
   capitalTyping = capitalTyping.toUpperCase();
-  $button.textContent = capitalTyping;
-  $divColumn2.appendChild($button);
+  $span.textContent = capitalTyping;
+  $divColumn2.appendChild($span);
 
   if (data.currentPokemon.typing.length > 1) {
-    var $button2 = document.createElement('button');
-    $button2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small');
+    var $span2 = document.createElement('span');
+    $span2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small padding-span');
     var capitalTyping2 = data.currentPokemon.typing[1];
     capitalTyping2 = capitalTyping2.toUpperCase();
-    $button2.textContent = capitalTyping2;
-    $divColumn2.appendChild($button2);
+    $span2.textContent = capitalTyping2;
+    $divColumn2.appendChild($span2);
   }
   var $divRow3 = document.createElement('div');
   $divRow3.setAttribute('class', 'padding-top-small text-align-left');
@@ -586,7 +586,7 @@ $favoriteList.addEventListener('click', clickPokemon);
 function contentLoadPokemonFavorites(event) {
   for (var i = 0; i < data.favorited.length; i++) {
     var content = createFavorites(data.favorited[i]);
-    $favoriteList.appendChild(content);
+    $favoriteList.prepend(content);
   }
 }
 

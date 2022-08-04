@@ -28,7 +28,7 @@
 }
 
 .padding-left {
-  padding-left: 50px;
+  padding-left: 3.125rem;
 }
 
 .official-artwork {
@@ -37,12 +37,8 @@
   object-fit: cover;
 }
 
-.column-three-fourth {
-  width: 75%;
-}
-
 .details {
-  padding-left: 25px;
+  padding-left: 1.5625rem;
 }
 
 .square {
@@ -59,10 +55,6 @@
   transition: background-color 0.5s;
   border-radius: 1rem;
   border: solid 0.2rem #025873;
-}
-
-.column-fourth {
-  width: 25%;
 }
 
 .column-half {
@@ -195,12 +187,12 @@
   }
 
   .margin-table {
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-bottom: 0.3125rem;
+    margin-left: 0.3125rem;
+    margin-right: 0.3125rem;
   }
 
   .margin-star {
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
 }

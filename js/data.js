@@ -39,13 +39,6 @@ var data = {
       end: 898
     }
   },
-  gen2: [],
-  gen3: [],
-  gen4: [],
-  gen5: [],
-  gen6: [],
-  gen7: [],
-  gen8: [],
   favorited: [],
   currentPokemon: {
     id: null,
@@ -62,6 +55,11 @@ var data = {
     img: null
   }
 };
+
+var storedData = localStorage.getItem('pokemon-data');
+if (storedData !== null) {
+  data = JSON.parse(storedData);
+}
 
 function stringJson(event) {
   var dataJSON = JSON.stringify(data);

@@ -1,5 +1,6 @@
 var $pokemonList = document.querySelector('.pokemon-list');
 var $pokemonDetail = document.querySelector('#pokemon-detail');
+var $favoriteList = document.querySelector('.favorite-list');
 
 function getPokemonDataAll(datagen) {
   var xhr = new XMLHttpRequest();
@@ -454,6 +455,7 @@ function viewSwap(viewData) {
 }
 
 function clickPokemon(event) {
+  removeAllChildNodes($pokemonList);
   var $dataView = event.target.closest('.square').getAttribute('data-view');
   if (event.target.className === 'square') {
     var id = event.target.getAttribute('id');
@@ -520,14 +522,72 @@ function starTest(event) {
     favoritedPokemon.id = splitHeading[0];
     favoritedPokemon.name = splitHeading[1];
     data.favorited.unshift(favoritedPokemon);
+    var favoritedTest = createFavorites(favoritedPokemon);
+    $favoriteList.appendChild(favoritedTest);
 
   } else if (checkFavorites() === true) {
     event.target.setAttribute('class', 'fa-solid fa-star star-color-grey star-size padding-top-right-very-small margin-star');
     for (var i = 0; i < data.favorited.length; i++) {
       if (data.favorited[i].id === data.currentPokemon.id) {
+        var pokemonId = data.favorited[i].id.slice(1);
+        var $findSquare = document.getElementById(pokemonId);
+        $findSquare.remove();
         data.favorited.splice(i, 1);
+
       }
     }
   }
-
 }
+
+function createFavorites(favoritedPokemon) {
+  var pokemonNumberNoOcto = favoritedPokemon.id.slice(1);
+  var favoritePokemon = document.createElement('div');
+  favoritePokemon.setAttribute('class', 'square');
+  favoritePokemon.setAttribute('id', pokemonNumberNoOcto);
+  favoritePokemon.setAttribute('data-view', 'pokemon-details');
+
+  var $spriteImg = document.createElement('img');
+
+  $spriteImg.setAttribute('src', 'images/sprites/' + pokemonNumberNoOcto + '.png');
+  $spriteImg.setAttribute('class', 'sprite');
+
+  var $pokemonNumberAndName = document.createElement('p');
+  $pokemonNumberAndName.setAttribute('class', 'name');
+  $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumberNoOcto + '</span> ' + favoritedPokemon.name;
+
+  favoritePokemon.appendChild($spriteImg);
+  favoritePokemon.appendChild($pokemonNumberAndName);
+
+  return favoritePokemon;
+
+  // <div class="square">
+  //   <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+  //     <p>#1 Bulbasaur</p>
+  // </div>
+}
+
+var $favoriteAnchor = document.querySelector('#favorites');
+var $placeholder = document.querySelector('.placeholder-text');
+
+function changeToFavorites(event) {
+  removeAllChildNodes($pokemonDetail);
+  if (data.favorited.length > 0) {
+    $placeholder.className = 'hidden text-center placeholder-text rationale-font text-white margin-top-small';
+  } else {
+    $placeholder.className = 'text-center placeholder-text rationale-font text-white margin-top-small';
+  }
+  var $dataView = event.target.getAttribute('data-view');
+  viewSwap($dataView);
+}
+$favoriteAnchor.addEventListener('click', changeToFavorites);
+
+$favoriteList.addEventListener('click', clickPokemon);
+
+function contentLoadPokemonFavorites(event) {
+  for (var i = 0; i < data.favorited.length; i++) {
+    var content = createFavorites(data.favorited[i]);
+    $favoriteList.appendChild(content);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', contentLoadPokemonFavorites);

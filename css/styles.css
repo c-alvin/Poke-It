@@ -45,9 +45,14 @@ table {
   width: 93px;
   height: 36px;
   color: white;
-  border: solid white 0.2rem;
+  border: solid black 0.2rem;
   font-size: 0.85rem;
   border-radius: 0.3rem;
+  transition: all 0.5s ease;
+}
+
+.gen-button:hover {
+  border: solid white 0.2rem;
 }
 
 .space-evenly {
@@ -401,4 +406,14 @@ a {
 .padding-span {
   padding: 0.625rem 1.5625rem;
   font-family: rationale, sans-serif;
+}
+
+button,
+i.edit-icon,
+i.delete-icon {
+  cursor: pointer;
+}
+
+.logo {
+  cursor: pointer;
 }

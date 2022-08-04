@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.margin-star {
+  margin-right: 50px;
+}
+
 .row {
   display: flex;
 }
@@ -91,13 +95,13 @@
   margin-right: 25px;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 375px) {
   .header-text {
     justify-content: center;
-  }
-
-  .margin-left-15 {
-    margin-left: 0;
   }
 
   .padding-left {
@@ -174,5 +178,9 @@
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  .margin-star {
+    margin-right: 10px;
   }
 }

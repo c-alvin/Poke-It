@@ -1,12 +1,19 @@
 var $pokemonList = document.querySelector('.pokemon-list');
 var $pokemonDetail = document.querySelector('#pokemon-detail');
 var $favoriteList = document.querySelector('.favorite-list');
+var $loadingSpinner = document.querySelector('.ring-container');
+var $errorModal = document.querySelector('.error-modal');
 
 function getPokemonDataAll(datagen) {
   var xhr = new XMLHttpRequest();
+  $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center');
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokedex/1');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     for (var i = data.pokeGenBoundaries[datagen].start - 1; i <= data.pokeGenBoundaries[datagen].end - 1; i++) {
       var pokemon = document.createElement('div');
       pokemon.setAttribute('class', 'square');
@@ -65,9 +72,14 @@ $allPokemonSelect.addEventListener('change', appendPokemonDataForSelect);
 
 function getPokemonDetails(id) {
   var xhr = new XMLHttpRequest();
+  $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center');
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     data.currentPokemon.id = '#' + xhr.response.id;
     data.currentPokemon.heading = '#' + xhr.response.id + ' ' + xhr.response.name;
     data.currentPokemon.weight = xhr.response.weight;
@@ -91,9 +103,14 @@ function getPokemonDetails(id) {
 
 function createPokemonDetail(id) {
   var xhr = new XMLHttpRequest();
+  $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center');
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     renderPokemonDetails(xhr.response);
   });
   xhr.send();
@@ -147,7 +164,7 @@ function renderPokemonDetails(responseData) {
   $divRow2.appendChild($divColumn2);
 
   var $p1 = document.createElement('p');
-  $p1.setAttribute('class', 'josefins-font flavor-text margin-left-15');
+  $p1.setAttribute('class', 'josefins-font flavor-text margin-left-15 margin-right-15');
 
   for (var i = 0; i < responseData.flavor_text_entries.length; i++) {
     if (responseData.flavor_text_entries[i].language.name === 'en') {
@@ -173,7 +190,7 @@ function renderPokemonDetails(responseData) {
     $divColumn2.appendChild($span2);
   }
   var $divRow3 = document.createElement('div');
-  $divRow3.setAttribute('class', 'padding-top-small text-align-left');
+  $divRow3.setAttribute('class', 'padding-top-small text-align-left table-flex');
 
   var $table = document.createElement('table');
   $table.setAttribute('class', 'rationale-font margin-table');

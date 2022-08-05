@@ -2,6 +2,7 @@ var $pokemonList = document.querySelector('.pokemon-list');
 var $pokemonDetail = document.querySelector('#pokemon-detail');
 var $favoriteList = document.querySelector('.favorite-list');
 var $loadingSpinner = document.querySelector('.ring-container');
+var $errorModal = document.querySelector('.error-modal');
 
 function getPokemonDataAll(datagen) {
   var xhr = new XMLHttpRequest();
@@ -10,6 +11,9 @@ function getPokemonDataAll(datagen) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     for (var i = data.pokeGenBoundaries[datagen].start - 1; i <= data.pokeGenBoundaries[datagen].end - 1; i++) {
       var pokemon = document.createElement('div');
       pokemon.setAttribute('class', 'square');
@@ -73,6 +77,9 @@ function getPokemonDetails(id) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     data.currentPokemon.id = '#' + xhr.response.id;
     data.currentPokemon.heading = '#' + xhr.response.id + ' ' + xhr.response.name;
     data.currentPokemon.weight = xhr.response.weight;
@@ -101,6 +108,9 @@ function createPokemonDetail(id) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center hidden');
+    if (xhr.status !== 200) {
+      $errorModal.setAttribute('class', 'error-modal');
+    }
     renderPokemonDetails(xhr.response);
   });
   xhr.send();

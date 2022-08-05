@@ -76,16 +76,28 @@
     <div data-view="pokemon-details" class="view hidden" id="pokemon-detail">
     </div>
     <div data-view="favorites-list" class="view hidden">
-      <div class="row pokemon-view">
-        <div class="column-full">
-          <p class="text-center placeholder-text rationale-font text-white margin-top-small">Nothing has been favorited</p>
-          <div class="row flex-wrap space-evenly rationale-font favorite-list margin-top-small">
+      <div class="container background-color-red">
+        <div class="row pokemon-view">
+          <div class="column-full">
+            <p class="text-center placeholder-text rationale-font text-white margin-top-small">No favorite Pokémon found, click
+              the pokéball at the top to go back.</p>
+            <div class="row flex-wrap space-evenly rationale-font favorite-list margin-top-small">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
-  <div class="ring-container display-flex justify-center">
+  <div class="hidden error-modal">
+    <div class="modal-window">
+      <div class="row">
+        <div class="column-full">
+          <p class="rationale-font">Sorry, there was an error connecting to the network! Please check your internet connection and try again</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ring-container display-flex justify-center hidden">
     <div class="lds-ring">
       <div></div>
     </div>

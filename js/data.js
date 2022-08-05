@@ -67,14 +67,3 @@ function stringJson(event) {
 }
 
 window.addEventListener('beforeunload', stringJson);
-
-// data-gen = gen1
-
-// pokegenboundaries = {
-//   national: {
-//     start:
-//     end:
-//   }
-// }
-
-// for loop start cnonditional end

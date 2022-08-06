@@ -506,9 +506,8 @@ i.delete-icon {
   height: 100vh;
   width: 100%;
   position: fixed;
-  align-items: center;
   justify-content: center;
-  top: 0;
+  top: 140px;
   left: 0;
 }
 
@@ -520,9 +519,9 @@ i.delete-icon {
   color: white;
   border-radius: 1rem;
   text-align: center;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .modal-window-badge {
@@ -549,4 +548,5 @@ i.delete-icon {
   height: 150px;
   width: 150px;
   object-fit: cover;
+  box-shadow: 1rem;
 }

@@ -631,6 +631,7 @@ $cancelButton.addEventListener('click', viewThemesModal);
 
 var $mainColor = document.querySelector('.maincolor');
 var $subColor = document.querySelector('.subcolor');
+var $favoriteColor = document.querySelector('.favorite-color');
 
 function changeColorTheme(event) {
   if (event.target.matches('IMG')) {
@@ -639,6 +640,7 @@ function changeColorTheme(event) {
       data.color = 'default';
       $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + 'red');
       $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + 'white');
+      $favoriteColor.setAttribute('class', 'container background-color-red');
       var $pokemonDetailsBorderDefault = document.querySelector('.pokemon-details-border');
       if ($pokemonDetailsBorderDefault !== null) {
         $pokemonDetailsBorderDefault.setAttribute('class', 'pokemon-details-border height-test border-' + 'red');
@@ -647,6 +649,7 @@ function changeColorTheme(event) {
       data.color = color;
       $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + color);
       $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + color);
+      $favoriteColor.setAttribute('class', 'container background-color-' + color);
       var $pokemonDetailsBorder = document.querySelector('.pokemon-details-border');
       if ($pokemonDetailsBorder !== null) {
         $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);

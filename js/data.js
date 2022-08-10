@@ -1,5 +1,6 @@
 /* exported data */
 var data = {
+  color: 'default',
   view: 'pokemon-view',
   pokeGenBoundaries: {
     national: {
@@ -62,6 +63,7 @@ if (storedData !== null) {
 }
 
 function stringJson(event) {
+  data.color = 'default';
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('pokemon-data', dataJSON);
 }

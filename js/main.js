@@ -118,7 +118,7 @@ function createPokemonDetail(id) {
 
 function renderPokemonDetails(responseData) {
   var $pokemonDetailsBorder = document.createElement('div');
-  $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test');
+  $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);
   $pokemonDetailsBorder.setAttribute('id', data.currentPokemon.id);
 
   var $divRow = document.createElement('div');
@@ -175,7 +175,7 @@ function renderPokemonDetails(responseData) {
   $divColumn2.appendChild($p1);
 
   var $span = document.createElement('span');
-  $span.setAttribute('class', data.currentPokemon.typing[0] + ' ' + 'margin-left-15 padding-span');
+  $span.setAttribute('class', data.currentPokemon.typing[0] + ' ' + 'margin-left-15 padding-span margin-right-15');
   var capitalTyping = data.currentPokemon.typing[0];
   capitalTyping = capitalTyping.toUpperCase();
   $span.textContent = capitalTyping;
@@ -183,7 +183,7 @@ function renderPokemonDetails(responseData) {
 
   if (data.currentPokemon.typing.length > 1) {
     var $span2 = document.createElement('span');
-    $span2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + 'margin-left-small padding-span');
+    $span2.setAttribute('class', data.currentPokemon.typing[1] + ' ' + ' padding-span margin-right-15');
     var capitalTyping2 = data.currentPokemon.typing[1];
     capitalTyping2 = capitalTyping2.toUpperCase();
     $span2.textContent = capitalTyping2;
@@ -608,3 +608,58 @@ function contentLoadPokemonFavorites(event) {
 }
 
 window.addEventListener('DOMContentLoaded', contentLoadPokemonFavorites);
+
+var $themesAnchor = document.querySelector('#themes');
+var $modalDiv = document.querySelector('.badges-modal');
+
+var modalOn = false;
+function viewThemesModal(event) {
+  if (modalOn === false) {
+    $modalDiv.className = 'badges-modal';
+    modalOn = true;
+  } else {
+    $modalDiv.className = 'badges-modal hidden';
+    modalOn = false;
+  }
+}
+
+$themesAnchor.addEventListener('click', viewThemesModal);
+
+var $cancelButton = document.querySelector('.cancel-button');
+
+$cancelButton.addEventListener('click', viewThemesModal);
+
+var $mainColor = document.querySelector('.maincolor');
+var $subColor = document.querySelector('.subcolor');
+var $favoriteColor = document.querySelector('.favorite-color');
+
+function changeColorTheme(event) {
+  if (event.target.matches('IMG')) {
+    var color = event.target.getAttribute('data-color');
+    if (color === data.color) {
+      data.color = 'default';
+      $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + 'red');
+      $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + 'white');
+      $favoriteColor.setAttribute('class', 'container background-color-red');
+      var $pokemonDetailsBorderDefault = document.querySelector('.pokemon-details-border');
+      if ($pokemonDetailsBorderDefault !== null) {
+        $pokemonDetailsBorderDefault.setAttribute('class', 'pokemon-details-border height-test border-' + 'red');
+      }
+    } else {
+      data.color = color;
+      $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + color);
+      $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + color);
+      $favoriteColor.setAttribute('class', 'container background-color-' + color);
+      var $pokemonDetailsBorder = document.querySelector('.pokemon-details-border');
+      if ($pokemonDetailsBorder !== null) {
+        $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);
+      }
+    }
+  }
+}
+
+var $modalBadges = document.querySelector('.first-four-badges');
+var $modalBadges2 = document.querySelector('.last-four-badges');
+
+$modalBadges.addEventListener('click', changeColorTheme);
+$modalBadges2.addEventListener('click', changeColorTheme);

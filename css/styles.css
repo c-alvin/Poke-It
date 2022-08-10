@@ -408,7 +408,7 @@ a {
   padding: 0.625rem 1.5625rem;
   font-family: rationale, sans-serif;
   display: inline-block;
-  width: 90px;
+  width: 100px;
   height: 37.5px;
   text-align: center;
 }
@@ -498,4 +498,125 @@ i.delete-icon {
   background-image: url("https://i.redd.it/ym8uwlh0m5z81.jpg");
   color: white;
   text-align: center;
+}
+
+.badges-modal {
+  display: flex;
+  background-color: none;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  justify-content: center;
+  top: 140px;
+  left: 0;
+}
+
+.cancel-button {
+  height: 30px;
+  width: 30px;
+}
+
+.justify-right {
+  justify-content: right;
+}
+
+.height-min-max {
+  max-height: 100%;
+  min-height: 800px;
+}
+
+.background-color-pewter {
+  background-color: #3f3f3f;
+}
+
+.background-color-subcolor-pewter {
+  background-color: #7e7e7e;
+}
+
+.background-color-earth {
+  background-color: #10602a;
+}
+
+.background-color-subcolor-earth {
+  background-color: #7dac34;
+}
+
+.background-color-cascade {
+  background-color: #031b38;
+}
+
+.background-color-subcolor-cascade {
+  background-color: #326d8e;
+}
+
+.background-color-volcano {
+  background-color: #750013;
+}
+
+.background-color-subcolor-volcano {
+  background-color: #9b3445;
+}
+
+.background-color-glacier {
+  background-color: #4899a1;
+}
+
+.background-color-subcolor-glacier {
+  background-color: #9eaba9;
+}
+
+.background-color-relic {
+  background-color: #8f88ac;
+}
+
+.background-color-subcolor-relic {
+  background-color: #bcd0d1;
+}
+
+.background-color-legend {
+  background-color: #8a7843;
+}
+
+.background-color-subcolor-legend {
+  background-color: #41372d;
+}
+
+.background-color-feather {
+  background-color: #71ab98;
+}
+
+.background-color-subcolor-feather {
+  background-color: #4d6e63;
+}
+
+.border-pewter {
+  border: solid 1.5rem #3f3f3f;
+}
+
+.border-earth {
+  border: solid 1.5rem #10602a;
+}
+
+.border-cascade {
+  border: solid 1.5rem #031b38;
+}
+
+.border-volcano {
+  border: solid 1.5rem #750013;
+}
+
+.border-glacier {
+  border: solid 1.5rem #4899a1;
+}
+
+.border-relic {
+  border: solid 1.5rem #8f88ac;
+}
+
+.border-legend {
+  border: solid 1.5rem #8a7843;
+}
+
+.border-feather {
+  border: solid 1.5rem #71ab98;
 }

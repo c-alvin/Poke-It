@@ -3,8 +3,8 @@
   margin: 0 auto;
 }
 
-.margin-star {
-  margin-right: 3.125rem;
+.margin-anchors {
+  margin-bottom: 20px;
 }
 
 .row {
@@ -15,10 +15,6 @@
   margin-left: 15px;
 }
 
-.height-test {
-  height: 900px;
-}
-
 .justify-right {
   justify-content: right;
 }
@@ -27,64 +23,8 @@
   width: 100%;
 }
 
-.padding-left {
-  padding-left: 3.125rem;
-}
-
-.official-artwork {
-  height: 475px;
-  width: 475px;
-  object-fit: cover;
-}
-
-.details {
-  padding-left: 1.5625rem;
-}
-
-.square {
-  width: 150px;
-  height: 150px;
-  background-color: #f2f3f4;
-  margin-left: 50px;
-  margin-right: 35px;
-  margin-bottom: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: background-color 0.5s;
-  border-radius: 1rem;
-  border: solid 0.2rem #025873;
-}
-
-.column-half {
-  width: 50%;
-}
-
-.pokemon-category {
-  display: none;
-}
-
 .flex-wrap {
   flex-wrap: wrap;
-}
-
-.flex-wrap-details {
-  flex-wrap: wrap;
-}
-
-.justify-right-random {
-  justify-content: right;
-  align-items: center;
-  height: 80px;
-}
-
-.stats {
-  display: contents;
-}
-
-.margin-right-small {
-  margin-right: 25px;
 }
 
 .space-between {
@@ -95,9 +35,134 @@
   display: block;
 }
 
-@media screen and (max-width: 900px) {
+.header-text {
+  justify-content: center;
+}
+
+.padding-left {
+  padding-left: 0;
+}
+
+.buttons {
+  display: none;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 15px;
+  transition: background-color 0.5s;
+  border-radius: 1rem;
+  border: solid 0.2rem #025873;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokemon-category {
+  display: inline-block;
+}
+
+.official-artwork {
+  height: 250px;
+  width: auto;
+  object-fit: cover;
+}
+
+.column-half {
+  width: 100%;
+}
+
+.details {
+  text-align: center;
+  padding-left: 0;
+}
+
+.stats {
+  display: none;
+}
+
+.pokemon-details-header {
+  font-size: 0.75rem;
+}
+
+.height-test {
+  height: auto;
+}
+
+.header {
+  flex-direction: column;
+}
+
+.justify-right-random {
+  justify-content: center;
+}
+
+.margin-right-small {
+  margin-right: 0;
+}
+
+.flavor-text {
+  padding: 1rem;
+}
+
+.flex-wrap-details {
+  flex-wrap: wrap-reverse;
+}
+
+.margin-table {
+  margin-bottom: 0.3125rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+
+.margin-star {
+  margin-right: 0.425rem;
+  margin-top: 0;
+}
+
+.outer-window {
+  background-color: #c18321;
+  border: solid 0.3rem black;
+  height: 600px;
+  width: 300px;
+  color: white;
+  border-radius: 1rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-window-badge {
+  background-color: #36454f;
+  border: solid 0.3rem black;
+  height: 560px;
+  width: 280px;
+  color: white;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: inset -0.55rem -0.75rem rgba(0 0 0 / 0.3);
+}
+
+.badge {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  box-shadow: 1rem;
+}
+
+@media screen and (min-width: 760px) {
   .column-half {
     width: 100%;
+  }
+
+  .margin-anchors {
+    margin-bottom: 0;
   }
 
   .table-flex {
@@ -122,91 +187,151 @@
     margin-bottom: 5px;
     margin-right: 25px;
   }
-}
 
-@media screen and (max-width: 400px) {
-  .header-text {
-    justify-content: center;
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
   }
+
+  .row {
+    display: flex;
+  }
+
+  .margin-left-15 {
+    margin-left: 15px;
+  }
+
+  .justify-right {
+    justify-content: right;
+  }
+
+  .column-full {
+    width: 100%;
 
   .padding-left {
-    padding-left: 0;
+    padding-left: 3.125rem;
   }
 
-  .buttons {
-    display: none;
+  .details {
+    padding-left: 1.5625rem;
+    text-align: left;
   }
 
   .square {
     width: 150px;
     height: 150px;
-    background-color: white;
-    margin-left: 0;
-    margin-right: 0;
+    background-color: #f2f3f4;
+    margin-left: 50px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     transition: background-color 0.5s;
     border-radius: 1rem;
     border: solid 0.2rem #025873;
   }
 
   .pokemon-category {
-    display: inline-block;
-  }
-
-  .official-artwork {
-    height: 250px;
-    width: auto;
-    object-fit: cover;
-  }
-
-  .column-half {
-    width: 100%;
-  }
-
-  .details {
-    text-align: center;
-    padding-left: 0;
-  }
-
-  .stats {
     display: none;
   }
 
-  .pokemon-details-header {
-    font-size: 0.75rem;
-  }
-
-  .height-test {
-    height: auto;
-  }
-
-  .header {
-    flex-direction: column;
-  }
-
-  .justify-right-random {
-    justify-content: center;
-  }
-
-  .margin-right-small {
-    margin-right: 0;
-  }
-
-  .flavor-text {
-    padding: 1rem;
+  .flex-wrap {
+    flex-wrap: wrap;
   }
 
   .flex-wrap-details {
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
   }
 
-  .margin-table {
-    margin-bottom: 0.3125rem;
-    margin-left: 0.3125rem;
-    margin-right: 0.3125rem;
+  .justify-right-random {
+    justify-content: right;
+    align-items: center;
+    height: 80px;
   }
 
+  .badge {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    box-shadow: 1rem;
+  }
+
+  .stats {
+    display: contents;
+  }
+
+  .margin-right-small {
+    margin-right: 25px;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .outer-window {
+    background-color: #c18321;
+    border: solid 0.3rem black;
+    height: 600px;
+    width: 900px;
+    color: white;
+    border-radius: 1rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal-window-badge {
+    background-color: #36454f;
+    border: solid 0.3rem black;
+    height: 560px;
+    width: 860px;
+    color: white;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: inset -0.55rem -0.75rem rgba(0 0 0 / 0.3);
+  }
+
+  .header {
+    flex-direction: row;
+  }
+
+  .header-text {
+    justify-content: left;
+  }
+
+  .flavor-text {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .margin-star {
-    margin-right: 0.425rem;
-    margin-top: 0;
+    margin-right: 3.125rem;
+  }
+
+  .height-test {
+    height: 900px;
+  }
+
+  .official-artwork {
+    height: 475px;
+    width: 475px;
+    object-fit: cover;
+  }
+
+  .details {
+    padding-left: 1.5625rem;
+    text-align: left;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+
+  .table-flex {
+    display: block;
   }
 }

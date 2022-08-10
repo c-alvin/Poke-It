@@ -1,5 +1,6 @@
 /* exported data */
 var data = {
+  color: 'default',
   view: 'pokemon-view',
   pokeGenBoundaries: {
     national: {

@@ -408,7 +408,7 @@ a {
   padding: 0.625rem 1.5625rem;
   font-family: rationale, sans-serif;
   display: inline-block;
-  width: 90px;
+  width: 100px;
   height: 37.5px;
   text-align: center;
 }
@@ -511,30 +511,6 @@ i.delete-icon {
   left: 0;
 }
 
-.outer-window {
-  background-color: #c18321;
-  border: solid 0.3rem black;
-  height: 600px;
-  width: 900px;
-  color: white;
-  border-radius: 1rem;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.modal-window-badge {
-  background-color: #36454f;
-  border: solid 0.3rem black;
-  height: 560px;
-  width: 860px;
-  color: white;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: inset -0.55rem -0.75rem rgba(0 0 0 / 0.3);
-}
-
 .cancel-button {
   height: 30px;
   width: 30px;
@@ -544,9 +520,103 @@ i.delete-icon {
   justify-content: right;
 }
 
-.badge {
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
-  box-shadow: 1rem;
+.height-min-max {
+  max-height: 100%;
+  min-height: 800px;
+}
+
+.background-color-pewter {
+  background-color: #3f3f3f;
+}
+
+.background-color-subcolor-pewter {
+  background-color: #7e7e7e;
+}
+
+.background-color-earth {
+  background-color: #10602a;
+}
+
+.background-color-subcolor-earth {
+  background-color: #7dac34;
+}
+
+.background-color-cascade {
+  background-color: #031b38;
+}
+
+.background-color-subcolor-cascade {
+  background-color: #326d8e;
+}
+
+.background-color-volcano {
+  background-color: #750013;
+}
+
+.background-color-subcolor-volcano {
+  background-color: #9b3445;
+}
+
+.background-color-glacier {
+  background-color: #4899a1;
+}
+
+.background-color-subcolor-glacier {
+  background-color: #9eaba9;
+}
+
+.background-color-relic {
+  background-color: #8f88ac;
+}
+
+.background-color-subcolor-relic {
+  background-color: #bcd0d1;
+}
+
+.background-color-legend {
+  background-color: #8a7843;
+}
+
+.background-color-subcolor-legend {
+  background-color: #41372d;
+}
+
+.background-color-feather {
+  background-color: #71ab98;
+}
+
+.background-color-subcolor-feather {
+  background-color: #4d6e63;
+}
+
+.border-pewter {
+  border: solid 1.5rem #3f3f3f;
+}
+
+.border-earth {
+  border: solid 1.5rem #10602a;
+}
+
+.border-cascade {
+  border: solid 1.5rem #031b38;
+}
+
+.border-volcano {
+  border: solid 1.5rem #750013;
+}
+
+.border-glacier {
+  border: solid 1.5rem #4899a1;
+}
+
+.border-relic {
+  border: solid 1.5rem #8f88ac;
+}
+
+.border-legend {
+  border: solid 1.5rem #8a7843;
+}
+
+.border-feather {
+  border: solid 1.5rem #71ab98;
 }

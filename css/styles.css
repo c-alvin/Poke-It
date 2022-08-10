@@ -620,3 +620,7 @@ i.delete-icon {
 .border-feather {
   border: solid 1.5rem #71ab98;
 }
+
+.test {
+  height: 100px;
+}

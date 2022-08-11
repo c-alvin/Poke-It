@@ -3,6 +3,35 @@ var $pokemonDetail = document.querySelector('#pokemon-detail');
 var $favoriteList = document.querySelector('.favorite-list');
 var $loadingSpinner = document.querySelector('.ring-container');
 var $errorModal = document.querySelector('.error-modal');
+var $allPokemon = document.querySelector('.buttons');
+var $allPokemonSelect = document.querySelector('.pokemon-category');
+var $allView = document.querySelectorAll('.view');
+var $header = document.querySelector('.header-text');
+var $random = document.querySelector('#random');
+var $favoriteAnchor = document.querySelector('#favorites');
+var $placeholder = document.querySelector('.placeholder-text');
+var $themesAnchor = document.querySelector('#themes');
+var $modalDiv = document.querySelector('.badges-modal');
+var modalOn = false;
+var $cancelButton = document.querySelector('.cancel-button');
+var $mainColor = document.querySelector('.maincolor');
+var $subColor = document.querySelector('.subcolor');
+var $favoriteColor = document.querySelector('.favorite-color');
+var $modalBadges = document.querySelector('.first-four-badges');
+var $modalBadges2 = document.querySelector('.last-four-badges');
+
+$allPokemon.addEventListener('click', appendPokemonData);
+$allPokemonSelect.addEventListener('change', appendPokemonDataForSelect);
+$pokemonList.addEventListener('click', clickPokemon);
+$header.addEventListener('click', changeDataView);
+$random.addEventListener('click', generateRandomPokemon);
+$favoriteAnchor.addEventListener('click', changeToFavorites);
+$favoriteList.addEventListener('click', clickPokemon);
+window.addEventListener('DOMContentLoaded', contentLoadPokemonFavorites);
+$cancelButton.addEventListener('click', viewThemesModal);
+$themesAnchor.addEventListener('click', viewThemesModal);
+$modalBadges.addEventListener('click', changeColorTheme);
+$modalBadges2.addEventListener('click', changeColorTheme);
 
 function getPokemonDataAll(datagen) {
   var xhr = new XMLHttpRequest();
@@ -44,8 +73,6 @@ function getPokemonDataAll(datagen) {
   xhr.send();
 }
 
-var $allPokemon = document.querySelector('.buttons');
-
 function appendPokemonData(event) {
   if (event.target.tagName === 'BUTTON');
   removeAllChildNodes($pokemonList);
@@ -53,15 +80,11 @@ function appendPokemonData(event) {
   getPokemonDataAll(datagen);
 }
 
-$allPokemon.addEventListener('click', appendPokemonData);
-
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
-
-var $allPokemonSelect = document.querySelector('.pokemon-category');
 
 function appendPokemonDataForSelect(event) {
   removeAllChildNodes($pokemonList);
@@ -69,7 +92,6 @@ function appendPokemonDataForSelect(event) {
   getPokemonDataAll(datagen);
 
 }
-$allPokemonSelect.addEventListener('change', appendPokemonDataForSelect);
 
 function getPokemonDetails(id) {
   var xhr = new XMLHttpRequest();
@@ -467,8 +489,6 @@ function renderPokemonDetails(responseData) {
 
 }
 
-var $allView = document.querySelectorAll('.view');
-
 function viewSwap(viewData) {
   for (var i = 0; i < $allView.length; i++) {
     var $dataView = $allView[i].getAttribute('data-view');
@@ -505,14 +525,6 @@ function changeDataView(event) {
   }
 }
 
-$pokemonList.addEventListener('click', clickPokemon);
-
-var $header = document.querySelector('.header-text');
-
-$header.addEventListener('click', changeDataView);
-
-var $random = document.querySelector('#random');
-
 function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -526,8 +538,6 @@ function generateRandomPokemon(event) {
   getPokemonDetails(id);
 
 }
-
-$random.addEventListener('click', generateRandomPokemon);
 
 function checkFavorites() {
   for (var p = 0; p < data.favorited.length; p++) {
@@ -590,9 +600,6 @@ function createFavorites(favoritedPokemon) {
   return favoritePokemon;
 }
 
-var $favoriteAnchor = document.querySelector('#favorites');
-var $placeholder = document.querySelector('.placeholder-text');
-
 function changeToFavorites(event) {
   removeAllChildNodes($pokemonDetail);
   if (data.favorited.length > 0) {
@@ -603,9 +610,6 @@ function changeToFavorites(event) {
   var $dataView = event.target.getAttribute('data-view');
   viewSwap($dataView);
 }
-$favoriteAnchor.addEventListener('click', changeToFavorites);
-
-$favoriteList.addEventListener('click', clickPokemon);
 
 function contentLoadPokemonFavorites(event) {
   for (var i = 0; i < data.favorited.length; i++) {
@@ -614,12 +618,6 @@ function contentLoadPokemonFavorites(event) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', contentLoadPokemonFavorites);
-
-var $themesAnchor = document.querySelector('#themes');
-var $modalDiv = document.querySelector('.badges-modal');
-
-var modalOn = false;
 function viewThemesModal(event) {
   if (modalOn === false) {
     $modalDiv.className = 'badges-modal';
@@ -629,16 +627,6 @@ function viewThemesModal(event) {
     modalOn = false;
   }
 }
-
-$themesAnchor.addEventListener('click', viewThemesModal);
-
-var $cancelButton = document.querySelector('.cancel-button');
-
-$cancelButton.addEventListener('click', viewThemesModal);
-
-var $mainColor = document.querySelector('.maincolor');
-var $subColor = document.querySelector('.subcolor');
-var $favoriteColor = document.querySelector('.favorite-color');
 
 function changeColorTheme(event) {
   if (event.target.matches('IMG')) {
@@ -668,9 +656,3 @@ function changeColorTheme(event) {
     }
   }
 }
-
-var $modalBadges = document.querySelector('.first-four-badges');
-var $modalBadges2 = document.querySelector('.last-four-badges');
-
-$modalBadges.addEventListener('click', changeColorTheme);
-$modalBadges2.addEventListener('click', changeColorTheme);

@@ -73,6 +73,18 @@
   height: 250px;
   width: auto;
   object-fit: cover;
+  animation: move-up-down-official 5s linear infinite;
+}
+
+@keyframes move-up-down-official {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .column-half {

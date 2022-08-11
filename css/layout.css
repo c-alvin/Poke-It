@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 5px 10px 10px rgba(0 0 0 / 0.5);
+  box-shadow: 10px 10px 10px rgba(0 0 0 / 0.5);
 }
 
 .pokemon-category {
@@ -316,13 +316,13 @@
     padding: 0;
     text-align: center;
   }
-}
 
-@media screen and (min-width: 1280px) {
   .margin-star {
     margin-right: 3.125rem;
   }
+}
 
+@media screen and (min-width: 1280px) {
   .flex-wrap-details {
     flex-wrap: wrap;
   }

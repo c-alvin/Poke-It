@@ -108,29 +108,33 @@ function getPokemonDetails(id) {
     if (xhr.status !== 200) {
       $errorModal.setAttribute('class', 'error-modal');
     }
-    data.currentPokemon.id = '#' + xhr.response.id;
-    var capitalName = xhr.response.name;
-    capitalName = capitalName[0].toUpperCase() + capitalName.slice(1, capitalName.length);
-    data.currentPokemon.heading = '#' + xhr.response.id + ' ' + capitalName;
-    data.currentPokemon.weight = xhr.response.weight;
-    data.currentPokemon.height = xhr.response.height;
-    data.currentPokemon.hp = xhr.response.stats[0].base_stat;
-    data.currentPokemon.attack = xhr.response.stats[1].base_stat;
-    data.currentPokemon.defense = xhr.response.stats[2].base_stat;
-    data.currentPokemon.specialAttack = xhr.response.stats[3].base_stat;
-    data.currentPokemon.specialDefense = xhr.response.stats[4].base_stat;
-    data.currentPokemon.speed = xhr.response.stats[5].base_stat;
-    data.currentPokemon.typing[0] = xhr.response.types[0].type.name;
-    if (xhr.response.types.length > 1) {
-      data.currentPokemon.typing[1] = xhr.response.types[1].type.name;
-    }
-    data.currentPokemon.img = xhr.response.sprites.other['official-artwork'].front_default;
+    var currentData = xhr.response;
+    getCurrentPokemonDetails(currentData);
     createPokemonDetail(id);
   });
   xhr.send();
   data.currentPokemon.typing = [];
 }
 
+function getCurrentPokemonDetails(currentData) {
+  data.currentPokemon.id = '#' + currentData.id;
+  var capitalName = currentData.name;
+  capitalName = capitalName[0].toUpperCase() + capitalName.slice(1, capitalName.length);
+  data.currentPokemon.heading = '#' + currentData.id + ' ' + capitalName;
+  data.currentPokemon.weight = currentData.weight;
+  data.currentPokemon.height = currentData.height;
+  data.currentPokemon.hp = currentData.stats[0].base_stat;
+  data.currentPokemon.attack = currentData.stats[1].base_stat;
+  data.currentPokemon.defense = currentData.stats[2].base_stat;
+  data.currentPokemon.specialAttack = currentData.stats[3].base_stat;
+  data.currentPokemon.specialDefense = currentData.stats[4].base_stat;
+  data.currentPokemon.speed = currentData.stats[5].base_stat;
+  data.currentPokemon.typing[0] = currentData.types[0].type.name;
+  if (currentData.types.length > 1) {
+    data.currentPokemon.typing[1] = currentData.types[1].type.name;
+  }
+  data.currentPokemon.img = currentData.sprites.other['official-artwork'].front_default;
+}
 function createPokemonDetail(id) {
   var xhr = new XMLHttpRequest();
   $loadingSpinner.setAttribute('class', 'ring-container display-flex justify-center');

@@ -59,11 +59,16 @@ function getPokemonDataAll(datagen) {
       $spriteImg.setAttribute('src', 'images/sprites/' + pokemonNumber + '.png');
       $spriteImg.setAttribute('class', 'sprite');
 
+      var $pokemonNumber = document.createElement('p');
+      $pokemonNumber.setAttribute('class', 'font-blue top-left-number');
+      $pokemonNumber.textContent = '#' + pokemonNumber;
+      pokemon.appendChild($pokemonNumber);
+
       var $pokemonNumberAndName = document.createElement('p');
       $pokemonNumberAndName.setAttribute('class', 'name');
       var capitalizedName = xhr.response.pokemon_entries[i].pokemon_species.name;
       capitalizedName = capitalizedName[0].toUpperCase() + capitalizedName.slice(1, capitalizedName.length);
-      $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumber + '</span> ' + capitalizedName;
+      $pokemonNumberAndName.textContent = capitalizedName;
 
       pokemon.appendChild($spriteImg);
       pokemon.appendChild($pokemonNumberAndName);

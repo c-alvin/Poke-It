@@ -637,3 +637,10 @@ i.delete-icon {
 .background-color-subcolor-white {
   background-color: white;
 }
+
+.top-left-number {
+  width: 100%;
+  margin: 0;
+  padding-left: 10px;
+  padding-top: 10px;
+}

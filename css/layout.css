@@ -32,7 +32,8 @@
 }
 
 .table-flex {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .header-text {
@@ -61,6 +62,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: 5px 5px 5px rgba(0 0 0 / 0.5);
 }
 
 .pokemon-category {
@@ -71,6 +73,18 @@
   height: 250px;
   width: auto;
   object-fit: cover;
+  animation: move-up-down-official 5s linear infinite;
+}
+
+@keyframes move-up-down-official {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .column-half {
@@ -152,13 +166,17 @@
 .badge {
   height: 100px;
   width: 100px;
-  object-fit: cover;
-  box-shadow: 1rem;
+  object-fit: fill;
+  filter: drop-shadow(10px 5px 10px rgba(0 0 0 / 0.8));
 }
 
 @media screen and (min-width: 760px) {
   .column-half {
     width: 100%;
+  }
+
+  .flex-wrap-details {
+    flex-wrap: wrap-reverse;
   }
 
   .margin-anchors {
@@ -177,10 +195,6 @@
 
   .height-test {
     height: auto;
-  }
-
-  .margin-star {
-    margin-top: 0.4rem;
   }
 
   .margin-table {
@@ -214,8 +228,7 @@
   }
 
   .details {
-    padding-left: 1.5625rem;
-    text-align: left;
+    padding-left: none;
   }
 
   .square {
@@ -242,10 +255,6 @@
     flex-wrap: wrap;
   }
 
-  .flex-wrap-details {
-    flex-wrap: wrap;
-  }
-
   .justify-right-random {
     justify-content: right;
     align-items: center;
@@ -255,7 +264,7 @@
   .badge {
     height: 150px;
     width: 150px;
-    object-fit: cover;
+    object-fit: fill;
     box-shadow: 1rem;
   }
 
@@ -305,12 +314,17 @@
 
   .flavor-text {
     padding: 0;
+    text-align: center;
+  }
+
+  .margin-star {
+    margin-right: 3.125rem;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .margin-star {
-    margin-right: 3.125rem;
+  .flex-wrap-details {
+    flex-wrap: wrap;
   }
 
   .height-test {
@@ -318,8 +332,8 @@
   }
 
   .official-artwork {
-    height: 475px;
-    width: 475px;
+    height: 550px;
+    width: 550px;
     object-fit: cover;
   }
 
@@ -334,5 +348,9 @@
 
   .table-flex {
     display: block;
+  }
+
+  .flavor-text {
+    text-align: left;
   }
 }

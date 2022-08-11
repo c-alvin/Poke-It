@@ -595,9 +595,14 @@ function createFavorites(favoritedPokemon) {
   $spriteImg.setAttribute('src', 'images/sprites/' + pokemonNumberNoOcto + '.png');
   $spriteImg.setAttribute('class', 'sprite');
 
+  var $pokemonNumber = document.createElement('p');
+  $pokemonNumber.setAttribute('class', 'font-blue top-left-number');
+  $pokemonNumber.textContent = '#' + pokemonNumberNoOcto;
+  favoritePokemon.appendChild($pokemonNumber);
+
   var $pokemonNumberAndName = document.createElement('p');
   $pokemonNumberAndName.setAttribute('class', 'name');
-  $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumberNoOcto + '</span> ' + favoritedPokemon.name;
+  $pokemonNumberAndName.textContent = favoritedPokemon.name;
 
   favoritePokemon.appendChild($spriteImg);
   favoritePokemon.appendChild($pokemonNumberAndName);

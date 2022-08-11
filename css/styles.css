@@ -33,6 +33,10 @@ table {
   background-color: #730220;
 }
 
+.background-color-subcolor-default {
+  background-color: black;
+}
+
 .background-color-white {
   background-color: white;
 }
@@ -46,7 +50,7 @@ table {
   height: 36px;
   color: white;
   border: solid black 0.2rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   border-radius: 0.3rem;
   transition: all 0.5s ease;
 }
@@ -623,4 +627,13 @@ i.delete-icon {
 
 .test {
   height: 100px;
+}
+
+.progress-bar {
+  height: 18.5px;
+  border-radius: 0.2rem;
+}
+
+.background-color-subcolor-white {
+  background-color: white;
 }

@@ -15,6 +15,10 @@ function getPokemonDataAll(datagen) {
       $errorModal.setAttribute('class', 'error-modal');
     }
     for (var i = data.pokeGenBoundaries[datagen].start - 1; i <= data.pokeGenBoundaries[datagen].end - 1; i++) {
+      // <div class="square">
+      //   <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+      //     <p>#1 Bulbasaur</p>
+      // </div>
       var pokemon = document.createElement('div');
       pokemon.setAttribute('class', 'square');
       pokemon.setAttribute('id', xhr.response.pokemon_entries[i].entry_number);
@@ -28,16 +32,13 @@ function getPokemonDataAll(datagen) {
 
       var $pokemonNumberAndName = document.createElement('p');
       $pokemonNumberAndName.setAttribute('class', 'name');
-      $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumber + '</span> ' + xhr.response.pokemon_entries[i].pokemon_species.name;
+      var capitalizedName = xhr.response.pokemon_entries[i].pokemon_species.name;
+      capitalizedName = capitalizedName[0].toUpperCase() + capitalizedName.slice(1, capitalizedName.length);
+      $pokemonNumberAndName.innerHTML = "<span class='font-blue'>" + '#' + pokemonNumber + '</span> ' + capitalizedName;
 
       pokemon.appendChild($spriteImg);
       pokemon.appendChild($pokemonNumberAndName);
       $pokemonList.appendChild(pokemon);
-
-      // <div class="square">
-      //   <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
-      //     <p>#1 Bulbasaur</p>
-      // </div>
     }
   });
   xhr.send();
@@ -81,7 +82,9 @@ function getPokemonDetails(id) {
       $errorModal.setAttribute('class', 'error-modal');
     }
     data.currentPokemon.id = '#' + xhr.response.id;
-    data.currentPokemon.heading = '#' + xhr.response.id + ' ' + xhr.response.name;
+    var capitalName = xhr.response.name;
+    capitalName = capitalName[0].toUpperCase() + capitalName.slice(1, capitalName.length);
+    data.currentPokemon.heading = '#' + xhr.response.id + ' ' + capitalName;
     data.currentPokemon.weight = xhr.response.weight;
     data.currentPokemon.height = xhr.response.height;
     data.currentPokemon.hp = xhr.response.stats[0].base_stat;
@@ -117,6 +120,81 @@ function createPokemonDetail(id) {
 }
 
 function renderPokemonDetails(responseData) {
+
+  /* <div class="pokemon-details-border height-test">
+<div class="row">
+ <div class="column-full pokemon-details-header padding-top-small">
+   <div class="row padding-left-25">
+     <h1>#1 Bulbasaur フシギダネ</h1>
+   </div>
+ </div>
+</div>
+<div class="row flex-wrap">
+ <div class="column-half column-full details">
+   <p>A strange seed was\nplanted on its\nback at birth.\fThe plant sprouts\nand grows with\nthis POKéMON.</p>
+   <button class="grass-type">GRASS</button>
+   <button class="poison-type">POISON</button>
+   <div class="stats padding-top-small">
+     <table>
+       <tr>
+         <th>Attack:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>HP:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>Special-attack:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>Special-defense:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>Speed:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>Defense:</th>
+         <td>99</td>
+         <td class="container">
+           <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
+         </td>
+       </tr>
+       <tr>
+         <th>Weight:</th>
+         <td>99</td>
+         </tr>
+       <tr>
+         <th>Height:</th>
+         <td>99</td>
+       </tr>
+     </table>
+   </div>
+ </div>
+ <div class="column-half column-full display-flex align-center justify-center">
+   <img class="official-artwork padding-top-small" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulbasaur">
+ </div>
+</div>
+</div> */
+
   var $pokemonDetailsBorder = document.createElement('div');
   $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);
   $pokemonDetailsBorder.setAttribute('id', data.currentPokemon.id);
@@ -217,7 +295,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv = document.createElement('div');
   var width = (data.currentPokemon.attack / 255) * 100;
   width = width + '%';
-  $filledDiv.setAttribute('style', 'height:18.5px; background-color: black; border-radius:0.2rem;' + 'width:' + width);
+  $filledDiv.setAttribute('style', 'width:' + width);
+  $filledDiv.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer.appendChild($filledDiv);
 
   var $tr2 = document.createElement('tr');
@@ -240,8 +319,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv2 = document.createElement('div');
   var width2 = (data.currentPokemon.hp / 255) * 100;
   width2 = width2 + '%';
-  $filledDiv2.setAttribute('style', 'height:18.5px; background-color:black; border-radius:0.2rem;' + 'width:' + width2);
-
+  $filledDiv2.setAttribute('style', 'width:' + width2);
+  $filledDiv2.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer2.appendChild($filledDiv2);
 
   var $tr3 = document.createElement('tr');
@@ -264,7 +343,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv3 = document.createElement('div');
   var width3 = (data.currentPokemon.specialDefense / 255) * 100;
   width3 = width3 + '%';
-  $filledDiv3.setAttribute('style', 'height:18.5px; background-color:black; border-radius:0.2rem;' + 'width:' + width3);
+  $filledDiv3.setAttribute('style', 'width:' + width3);
+  $filledDiv3.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer3.appendChild($filledDiv3);
 
   var $tr4 = document.createElement('tr');
@@ -287,7 +367,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv4 = document.createElement('div');
   var width4 = (data.currentPokemon.specialAttack / 255) * 100;
   width4 = width4 + '%';
-  $filledDiv4.setAttribute('style', 'height:18.5px; background-color:black; border-radius:0.2rem;' + 'width:' + width4);
+  $filledDiv4.setAttribute('style', 'width:' + width4);
+  $filledDiv4.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer4.appendChild($filledDiv4);
 
   var $tr5 = document.createElement('tr');
@@ -310,7 +391,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv5 = document.createElement('div');
   var width5 = (data.currentPokemon.defense / 255) * 100;
   width5 = width5 + '%';
-  $filledDiv5.setAttribute('style', 'height:18.5px; background-color:black; border-radius:0.2rem;' + 'width:' + width5);
+  $filledDiv5.setAttribute('style', 'width:' + width5);
+  $filledDiv5.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer5.appendChild($filledDiv5);
 
   var $tr6 = document.createElement('tr');
@@ -333,7 +415,8 @@ function renderPokemonDetails(responseData) {
   var $filledDiv6 = document.createElement('div');
   var width6 = (data.currentPokemon.speed / 255) * 100;
   width6 = width6 + '%';
-  $filledDiv6.setAttribute('style', 'height:18.5px; background-color:black; border-radius:0.2rem;' + 'width:' + width6);
+  $filledDiv6.setAttribute('style', 'width:' + width6);
+  $filledDiv6.setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
   $tdContainer6.appendChild($filledDiv6);
 
   var $tr7 = document.createElement('tr');
@@ -361,79 +444,6 @@ function renderPokemonDetails(responseData) {
   $td8.textContent = data.currentPokemon.height;
 
   $tr8.appendChild($td8);
-  /* <div class="pokemon-details-border height-test">
-<div class="row">
-  <div class="column-full pokemon-details-header padding-top-small">
-    <div class="row padding-left-25">
-      <h1>#1 Bulbasaur フシギダネ</h1>
-    </div>
-  </div>
-</div>
-<div class="row flex-wrap">
-  <div class="column-half column-full details">
-    <p>A strange seed was\nplanted on its\nback at birth.\fThe plant sprouts\nand grows with\nthis POKéMON.</p>
-    <button class="grass-type">GRASS</button>
-    <button class="poison-type">POISON</button>
-    <div class="stats padding-top-small">
-      <table>
-        <tr>
-          <th>Attack:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>HP:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>Special-attack:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>Special-defense:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>Speed:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>Defense:</th>
-          <td>99</td>
-          <td class="container">
-            <div style="height:18.5px;background-color:black; width: 45%; border-radius:0.5rem"class=""></div>
-          </td>
-        </tr>
-        <tr>
-          <th>Weight:</th>
-          <td>99</td>
-          </tr>
-        <tr>
-          <th>Height:</th>
-          <td>99</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="column-half column-full display-flex align-center justify-center">
-    <img class="official-artwork padding-top-small" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulbasaur">
-  </div>
-</div>
-</div> */
 
   $divColumn2.appendChild($divRow3);
 
@@ -504,8 +514,6 @@ $header.addEventListener('click', changeDataView);
 var $random = document.querySelector('#random');
 
 function generateRandomNumber(min, max) {
-  min = 1;
-  max = 898;
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -557,6 +565,10 @@ function starTest(event) {
 }
 
 function createFavorites(favoritedPokemon) {
+  // <div class="square">
+  //   <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+  //     <p>#1 Bulbasaur</p>
+  // </div>
   var pokemonNumberNoOcto = favoritedPokemon.id.slice(1);
   var favoritePokemon = document.createElement('div');
   favoritePokemon.setAttribute('class', 'square');
@@ -576,11 +588,6 @@ function createFavorites(favoritedPokemon) {
   favoritePokemon.appendChild($pokemonNumberAndName);
 
   return favoritePokemon;
-
-  // <div class="square">
-  //   <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
-  //     <p>#1 Bulbasaur</p>
-  // </div>
 }
 
 var $favoriteAnchor = document.querySelector('#favorites');
@@ -653,6 +660,10 @@ function changeColorTheme(event) {
       var $pokemonDetailsBorder = document.querySelector('.pokemon-details-border');
       if ($pokemonDetailsBorder !== null) {
         $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);
+        var $progressBar = document.querySelectorAll('.progress-bar');
+        for (var i = 0; i < $progressBar.length; i++) {
+          $progressBar[i].setAttribute('class', 'background-color-subcolor-' + data.color + ' ' + 'progress-bar');
+        }
       }
     }
   }

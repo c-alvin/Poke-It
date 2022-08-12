@@ -517,7 +517,7 @@ function clickPokemon(event) {
     var id = event.target.getAttribute('id');
     getPokemonDetails(id);
     viewSwap($dataView);
-  } else if (event.target.className === 'sprite' || event.target.className === 'name') {
+  } else if (event.target.className === 'sprite' || event.target.className === 'name' || event.target.className === 'font-blue top-left-number') {
     var id2 = event.target.closest('.square').getAttribute('id');
     getPokemonDetails(id2);
     viewSwap($dataView);

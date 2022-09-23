@@ -645,3 +645,7 @@ i.delete-icon {
   padding-left: 10px;
   padding-top: 10px;
 }
+
+span {
+  margin: 0.5rem !important;
+}

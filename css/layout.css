@@ -73,7 +73,7 @@
   height: 250px;
   width: auto;
   object-fit: cover;
-  animation: move-up-down-official 5s linear infinite;
+  animation: move-up-down-official 2s linear infinite;
 }
 
 @keyframes move-up-down-official {

@@ -41,10 +41,6 @@ table {
   background-color: white;
 }
 
-.text-white {
-  color: white;
-}
-
 .gen-button {
   width: 93px;
   height: 36px;
@@ -645,4 +641,20 @@ i.delete-icon {
   margin: 0;
   padding-left: 0.625rem;
   padding-top: 0.625rem;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-volcano {
+  color: white;
+}
+
+.text-cascade {
+  color: white;
+}
+
+.text-legend {
+  color: white;
 }

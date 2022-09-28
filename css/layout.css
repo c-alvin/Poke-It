@@ -4,7 +4,7 @@
 }
 
 .margin-anchors {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .row {
@@ -198,8 +198,8 @@
   }
 
   .margin-table {
-    margin-bottom: 5px;
-    margin-right: 25px;
+    margin-bottom: 0.3rem;
+    margin-right: 1.5625rem;
   }
 
   .container {
@@ -212,7 +212,7 @@
   }
 
   .margin-left-15 {
-    margin-left: 15px;
+    margin-left: 0.9375rem;
   }
 
   .justify-right {
@@ -235,9 +235,9 @@
     width: 150px;
     height: 150px;
     background-color: #f2f3f4;
-    margin-left: 50px;
-    margin-right: 35px;
-    margin-bottom: 35px;
+    margin-left: 3.125rem;
+    margin-right: 2.1875rem;
+    margin-bottom: 2.1875rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,7 +273,7 @@
   }
 
   .margin-right-small {
-    margin-right: 25px;
+    margin-right: 1.5625rem;
   }
 
   .space-between {

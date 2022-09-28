@@ -41,10 +41,6 @@ table {
   background-color: white;
 }
 
-.text-white {
-  color: white;
-}
-
 .gen-button {
   width: 93px;
   height: 36px;
@@ -157,6 +153,7 @@ table {
 
 .square:hover {
   transform: scale(1.1);
+  transition: 0.25s;
   cursor: pointer;
 }
 
@@ -446,7 +443,7 @@ i.delete-icon {
   position: relative;
   width: 64px;
   height: 64px;
-  margin: 8px;
+  margin: 0.5rem;
   border: 8px solid #f2f3f4;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -642,6 +639,22 @@ i.delete-icon {
 .top-left-number {
   width: 100%;
   margin: 0;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding-left: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-volcano {
+  color: white;
+}
+
+.text-cascade {
+  color: white;
+}
+
+.text-legend {
+  color: white;
 }

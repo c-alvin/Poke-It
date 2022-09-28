@@ -650,6 +650,9 @@ function changeColorTheme(event) {
       $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + 'red');
       $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + 'white');
       $favoriteColor.setAttribute('class', 'container background-color-red');
+      $favoriteAnchor.setAttribute('class', 'roboto-font margin-left-15 ');
+      $random.setAttribute('class', 'roboto-font margin-left-15 ');
+      $themesAnchor.setAttribute('class', 'roboto-font ');
       var $pokemonDetailsBorderDefault = document.querySelector('.pokemon-details-border');
       if ($pokemonDetailsBorderDefault !== null) {
         $pokemonDetailsBorderDefault.setAttribute('class', 'pokemon-details-border height-test border-' + 'red');
@@ -659,6 +662,9 @@ function changeColorTheme(event) {
       $mainColor.setAttribute('class', 'height-min-max maincolor' + ' background-color-' + color);
       $subColor.setAttribute('class', 'row header subcolor' + ' background-color-subcolor-' + color);
       $favoriteColor.setAttribute('class', 'container background-color-' + color);
+      $favoriteAnchor.setAttribute('class', 'roboto-font margin-left-15 text-' + color);
+      $random.setAttribute('class', 'roboto-font margin-left-15 text-' + color);
+      $themesAnchor.setAttribute('class', 'roboto-font text-' + color);
       var $pokemonDetailsBorder = document.querySelector('.pokemon-details-border');
       if ($pokemonDetailsBorder !== null) {
         $pokemonDetailsBorder.setAttribute('class', 'pokemon-details-border height-test border-' + data.color);

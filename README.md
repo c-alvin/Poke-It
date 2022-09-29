@@ -4,7 +4,7 @@ An application for pokemon lovers who want to view and favorite pokemon.
 
 ## Why I Built This
 
-As a kid, i grew up watching and playing Pokemon games.  Now that i am a bit older, I get to see my nephews and nieces going through their own journeys in the world of Pokemon. I wanted to build an app that Pokemon lovers of all ages could enjoy.
+As a kid, i grew up watching and playing Pokemon games.  Now that i am a bit older, I get to see my nephews and nieces going through their own journeys in the world of Pokemon. Because of this, I wanted to build an app that Pokemon lovers of all ages could enjoy.
 
 ## Technologies Used
 
@@ -42,4 +42,4 @@ Change Theme
 
 - User can sort Pokemon.
 - User can search for Pokemon.
-- User can notes for a pokemon.
+- User can add notes for a pokemon.

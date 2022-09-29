@@ -12,7 +12,7 @@ As a kid, i grew up watching and playing Pokemon games.  Now that i am a bit old
 - CSS3
 - JavaScript(Vanilla)
 
-# Data Sources
+## Data Sources
 
 - PokeApi: [Docs](https://pokeapi.co/)
 
@@ -29,7 +29,7 @@ Try the application live at [GitHub Deployment](https://c-alvin.github.io/Poke-I
 - Users can get the details of a random pokemon.
 - Users can change the color theme of the website.
 
-# Preview
+## Preview
 View Pokemon / View Details
 
 ![Details](images/gif1readme.gif)

@@ -511,6 +511,7 @@ function viewSwap(viewData) {
 }
 
 function clickPokemon(event) {
+  if (event.target.closest('.square') === null) return;
   removeAllChildNodes($pokemonList);
   var $dataView = event.target.closest('.square').getAttribute('data-view');
   if (event.target.className === 'square') {
